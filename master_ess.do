@@ -186,13 +186,15 @@ log using masterlog, text
     replace cohortsize=0.734 if cohortid==112
     replace cohortsize=0.781 if cohortid==113
     replace cohortsize=0.763 if cohortid==114
-    replace cohortsize=0.711 if cohortid==115
+    replace cohortsize=0.781 if cohortid==115
     /* comments:
     The cohort sizes are based on data from ONS and Statista.com
     <https://www.statista.com/statistics/281956/live-births-in-the-united-kingdom-uk-1900-1930/>
     */
     tab cohortsize, m
       tab cohortsize cohortid, m all exact
+
+  gen int cohortsize_5y=.
 
 
   *Bivariate visualization & variable transformation
@@ -204,8 +206,6 @@ log using masterlog, text
   bysort cohortid: sum happy
     bysort cohortid: egen avg_happy = mean(happy)
       tab avg_happy, m
-
-
 
   log off masterlog.txt
 
