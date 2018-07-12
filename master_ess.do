@@ -159,7 +159,7 @@ log using masterlog, text
       /*
       This cohortid var divides years into 5-year periods.
         This division is the same in Yang (2008).
-        #rename cohort_5y old_cohortid
+        #rename cohortid_5y old_cohortid
       comments:
         Year 1908 and 1910 are grouped into the "11/15" cohort, because they are too small to
         a own cohort and the value are close to "11/15" cohort.
@@ -195,7 +195,31 @@ log using masterlog, text
       tab cohortsize cohortid, m all exact
 
   gen int cohortsize_5y=.
-
+    replace cohortsize_5y=.847 if cohortid_5y==100
+    replace cohortsize_5y=.753 if cohortid_5y==101
+    replace cohortsize_5y=.766 if cohortid_5y==102
+    replace cohortsize_5y=.66 if cohortid_5y==103
+    replace cohortsize_5y=.605 if cohortid_5y==104
+    replace cohortsize_5y=.608 if cohortid_5y==105
+    replace cohortsize_5y=.669 if cohortid_5y==106
+    replace cohortsize_5y=.781 if cohortid_5y==107
+    replace cohortsize_5y=.675 if cohortid_5y==108
+    replace cohortsize_5y=.74 if cohortid_5y==109
+    replace cohortsize_5y=.849 if cohortid_5y==110
+    replace cohortsize_5y=.817 if cohortid_5y==111
+    replace cohortsize_5y=.686 if cohortid_5y==112
+    replace cohortsize_5y=.609 if cohortid_5y==113
+    replace cohortsize_5y=.637 if cohortid_5y==114
+    replace cohortsize_5y=.686 if cohortid_5y==115
+    replace cohortsize_5y=.675 if cohortid_5y==116
+    replace cohortsize_5y=.631 if cohortid_5y==117
+    /*comments:
+    Aux. cohortsize variable, using 5-year period.
+    */
+    tab cohortsize_5y, m
+      tab cohortsize_5y cohortid_5y, m all exact
+      tab cohortsize_5y cohortsize, m all exact
+  *End
 
   *Bivariate visualization & variable transformation
   ** Bivariate visualization
