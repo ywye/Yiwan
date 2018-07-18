@@ -1,0 +1,1464 @@
+EASTERLIN REVISIT:
+COHORT SIZE AND HAPPINESS IN THE UNITED KINGDOM
+
+Yiwan Ye
+University of California, Davis
+
+
+A draft submitted in partial fulfillment for the qualifying paper in the Department of Sociology, University of California, Davis.
+Please do not circulate or cite without the author’s consent.
+
+
+
+
+
+
+*Direct all correspondence to Yiwan Ye, Department of Sociology, UC Davis, One Shields Avenue, Davis. CA, 95616, or e-mail ywye@ucdavis.edu.
+
+EASTERLIN REVISIT:
+COHORT SIZE AND SUBJECTIVE WELLBEING IN THE UNITED KINGDOM
+
+TABLE OF CONTENT
+
+Abstract
+
+I. Introduction
+
+II. Literature Reviews
+
+o	Easterlin Hypothesis Revisit
+o	Empirical Work on Cohort Size Effect & Happiness
+o	UK Demographic Trend
+
+III. Hypothesis
+
+IV. Data
+
+V. Method
+
+VI. Results
+
+VII. Discussion & Conclusion
+
+VIII. Reference
+
+IX. Tables
+
+X. Graphs
+
+XI. Appendix.
+1.
+
+EASTERLIN REVISIT:
+COHORT SIZE AND SUBJECTIVE WELLBEING IN THE UNITED KINGDOM
+
+ABSTRACT
+I investigate the relationship between patterns of population growth and subjective well-being of different birth cohorts. Using eight waves of the United Kingdom national data from European Social Survey from 2002 to 2016 (N = 17,153), I examine the association between birth cohort size and individual well-being (sense of happiness, income class, education attainment, and employment) of United Kingdom citizens who were born from 1914 to 2000. Using Age-Period-Cohort (APC) multilevel models, I found happiness differs significantly across birth cohorts. Findings also show individuals from low birth cohorts tend to have a higher sense of happiness than individuals from high birth cohorts, net of age effects, period effects, and effects from socioeconomic status, health condition, and other demographic controls. Although income class, education, and employment status differ significantly across birth cohorts, birth cohort size does not seem to have an impact on these life outcomes. Cohort size and income class interactions show that individuals from higher income classes suffer less from the negative effect of large cohort size, while neither gender nor minority status mitigates this cohort effect. I will also discuss methodological limitations and policy implications.
+
+Key Words: Easterlin Hypothesis, Cohort Size Effect, Subjective Wellbeing, Age-Period-Cohort Model.
+
+
+“Nothing is sufficient for the person who finds sufficiency too little” – Epicurus
+
+I. INTRODUCTION:
+The cohort in which people are born plays a significant role in the outcomes of their lives, in part, because the number of people born in a particular cohort directly and indirectly affects the happiness (a proxy for subjective wellbeing) of its members (Easterlin 1987; 2004; Macunovich & Easterlin 2010). According to Easterlin (1987), a large cohort size leads to a competitive job market and a larger income inequality, and indirectly lead to a more significant scarcity of other social resources such as the housing market, the marital market, and education opportunities (Macunovich & Easterlin 2010). Consistent with Easterlin’s hypothesis, empirical studies show people from baby-boomer cohorts in the U.S. tend to be less happy and have lower incomes and higher unemployment rates than people from other cohorts, perhaps due to their large size (Easterlin 1987; Yang 2008; Slack & Jenson 2008). Likewise, people from large cohorts, especially people from the Baby-boomer generation, tend to report the lowest average happiness (Yang 2008; Fukuda 2013). Evidence from China is also consistent with the argument that individuals from high-birth years generally have lower subjective wellbeing (Shu 2017). Worldwide evidence seems to converge on Easterlin’s theory that a relatively large birth cohort size is generally unfavorable to people’ wellbeing.
+
+However, social scientists have not published any study that directly measures the impact of the birth cohort size on happiness. Population and happiness researchers overwhelmingly focus on the age-aspect of demographic effects, whereas cohort and period aspects of the population dynamics are often ignored or sidelined as variance controls (Fukuda 2014; Blanchflower & Oswald 2004; 2008; 2017; Powdthavee 2005; Oswald & Powdthavee 2008). As for scholars that disentangle the cohort and period variance, none have tested the causal mechanisms that link cohort effects and subjective wellbeing – i.e. the cohort size (Fukuda 2013; Yang 2008; Slack & Jenson 2008; Yang 2008; Sutin et al. 2013). For example, Yang (2008) found cohorts’ happiness is significantly different from each other. However, Yang did not test what causes the cohort difference in happiness, but speculate the low average happiness among baby boomers is probably due to their large cohort size (ibid). Most cohort studies on happiness account neither for cohort characteristics (such as cohort size, fertility rate, gender ratios, births by regions), nor period characteristics (such as significant social events, financial crises, GDP).
+
+Based on Yang’s paper (2008), I use United Kingdom data from the European Social Survey test if the cohort effect on wellbeing is unique to the U.S. Cohort studies on happiness are almost nonexistent outside the United States context. Some studies found a significant negative effect on happiness for baby boomer cohorts (Bardo et al. 2017; Fukuda 2013; Yang 2008; Slack & Jenson 2008; Easterlin 1987), but the cohort effect of baby boomers may be idiosyncratic to the historical and cultural conditions of the U.S. Therefore, replication of the study in a different context is needed to verify the baby boomer cohort effect.
+
+The age-period-cohort model (APC) has been the predominant method in studying time-specific population based phenomena in social and medical sciences (Mason and Wolfinger 2002; Yang et al. 2008). However, a serious drawback of APC analysis is its identification problem - age, period, and birth year are perfectly correlated with each other (i.e., birth year = interview year - age) (Yang & Land 2008; Fukuda 2013). Many researchers specify birth cohorts time periods as three or five-year periods and only use statistical tools to solve the identification issue (Yang 2008; Slack & Jenson 2008; Fukuda 2013; Sutin et al. 2013; Bardo et al. 2017). These types of time specification may not fully mitigate the collinearity among age, period, and cohort. I divide the cohort groups according to culturally defined generations in addition to statistical strategies used by prior studies.
+
+In conclusion, my contribution to cohort-wellbeing studies is threefold. I fill the gap in the knowledge on the relationship between cohort characteristics and life outcomes by measuring the cohort size directly. I am the first to apply the age-period-cohort analysis to happiness studies on the UK population. Additionally, I test different types of specification of cohorts in the Age-Period-Cohort analysis to improve APC model’s robustness and meaningfulness.
+
+[UNDER CONSTRUCTION]
+II. LITERATURE REVIEW
+Over the past few decades, researchers have employed the Easterlin hypothesis to look at the recurring changes in demographic characteristics and social wellbeing as a result of fluctuations in the birth cohort size in the post-WWII United States (Bardo et al. 2017; Fukuda 2013; Yang 2008; Slack & Jenson 2008; Clark et al. 2008; Pampel & Peters 1995; Easterlin 1987). 1). I will first revisit the theoretical framework that underlies the Easterlin hypothesis, namely the relative cohort size hypothesis. I have found that the Easterlin hypothesis has two basic explanations – cohort size as a proxy for relative income and cohort size effect as operating through crowding mechanisms. 2). Next, I will discuss current empirical findings that support or challenge the Easterlin hypothesis in the previous cohort and wellbeing studies. 3). Additionally, I will provide background information on the population characteristics and sociocultural environments of the United Kingdom to illustrate how generations and cohorts are defined in the UK society compared to that in the United States.
+
+1). Easterlin Hypothesis Revisit
+I revisit Easterlin hypothesis - that holding other factors constant, the economic and social wellbeing of a cohort (those born within a given period) tend to differ as a function of its relative size (Macunovich & Easterlin 2010). As Macunovich and Easterlin (1990) suggests, the cohort size hypothesis extend beyond economics, reaching out into sociology, demography and psychology, and it seeks to encompass a wider range of attitudinal and behavioral patterns than is traditionally considered economic. The relative cohort size hypothesis posits that the social and economic fortunes of a cohort tend to vary inversely with its relative size holding all else constant (Macunovich & Easterlin 2010). Easterlin suggests that this relationship between cohort size and wellbeing is operated through three underlying processes, which are a). crowding mechanism, b). relative income mechanism, and ‘commoditization’ process. The commoditization process reflexes the impact of cohort size on aggregate economic measures – Gross Domestic Product, productivity, interest rates - thus it’s irrelevant to my study (Easterlin 2010).
+
+a.	Cohort Size Effect as a Result of Crowding Mechanism
+Relative cohort size is hypothesized to have a direct effect on relative income – a measure for economic wellbeing (Macunovich & Easterlin 2010). Easterlin argues that the linkage between higher birth rates and adverse economic and social outcomes arises from what might be termed 'crowding mechanisms' that operate within three major social institutions - family, school and labor market. (Macunovich 2000; Macunovich & Easterlin 2010). The relative cohort size is approximated by the crude birth rates around a period – usually in a five-year internal (Easterlin 1987; Yang 2008; Macunovich 2000). A relative large birth cohort entails on average a larger number of siblings and a shorter birth interval. As a result, children from a large birth cohort encounter more competition for material and social resources at home, school, and job market. The notion of crowdedness may induce psychological stresses (Macunovich & Easterlin 2010). Empirical studies verify that a large population is correlated with adverse mental health outcome – such as higher chance of depression and higher suicide rates (Pampel 2001; Stockard & O’Brien 2002).
+
+b.	Relative Cohort Size as a Proxy for Relative Income
+Although many studies verify how higher income leads to more happiness, Easterlin suggests that the relative income (a ratio), not the nominal income (dollar amount), is the main determinant of self-reported happiness (Easterlin 2001). Easterlin observes that an increase in nominal income does not necessarily lead to higher happiness (Easterlin 1974; 2004). This phenomenon is called “Easterlin Paradox”, which is still persistent as of recent decades (ESRC, 2015). A psychological study supports that social comparison rather than absolute material conditions substantially influences subjective well-being (Lyubomirsky 2001).
+
+In Easterlin’s thesis, the relative income is the central mechanism that bridges the relationship between socioeconomic wellbeing and cohort size (Easterlin 1975). The relative income is defined as the ratio of individuals’ earning potential to their material aspirations. The earning potential refers to individual’ current or prospective earnings, whereas the material aspirations refer to their parents’ earnings or the living standards that those individuals had when they grew up (Macunovich & Easterlin 2010; Easterlin 1987; 2001). According to the socialization theory, parents’ financial capabilities play an important role in setting their children’s material aspirations, thus a decrease in children’s wages relative to parents’ wages will cause the children to feel relatively deprived and have greater stress to keep up (Duesenberry 1949; Wright 1989). Therefore, the baby boomers have the highest aspirations from their parents, yet their earning potential is severally restricted due to their large size (Easterlin 1987; Macunovich & Easterlin 2010).
+
+In his thesis, Easterlin proposes relative cohort size is used as a proxy for relative income (Wright 1989; Macunovich & Easterlin 2010). The linkage between relative income and fertility lays the foundation for the cohort size effect on happiness (Easterlin 1978; 1987). Low relative income delays marriage and childbearing due to not meeting material goals (Macunovich 2000). Conversely, when material aspirations (education, employment, and income) are met, individuals tend to marry early and have more children, resulting in higher fertility rate or larger birth cohorts (Easterlin 1975; Wright 1989; Pampel & Peters, 1995; Macunovich 2000). Consequently, children who grow up among those large birth cohorts tend to have high aspirations due to the economic success of their parents, but large cohort size also impedes their earning potential, making their socioeconomic goals more difficult to achieve due to relatively intensive competition (Easterlin 1975; 1987). Therefore, individuals with high aspirations and low earning potential, i.e. low relative income, are hypothesized to be less happy due to dissatisfaction about their life outcomes (Easterlin 1987; 2004; Easterlin et al. 1990). From these evidence, I could see that fertility rates are highly correlated with relative income and also systematically correlated with relative cohort size.
+
+In addition, a global study also suggests that happiness decreases when fertility rate increases (Margolis & Myrskyla 2011). Because relative cohort size is indirectly but highly correlated with relative income via fertility rates, and relative income is casually related to happiness from a psycho-economic standpoint, I think it’s safe to agree that relative cohort size is a good proxy for measuring relative income (Macunovich 2000; Lyubomirsky 2001; Macunovich & Easterlin 2010). Pampel & Peters (1995) summarize this proxy effect perfectly - “large cohort size reduces the economic opportunities of its members and reduces income relative to smaller parental generations. Low relative economic status in turn leads to lower fertility, … later marriage, … and increasing … suicide, and alienation. Cycles in birth rates and cohort size suggest that the small baby bust cohorts entering adulthood in the 1990s will enjoy higher relative income…” However, my goal is not to disentangle the proxy effect and the crowding mechanism from relative cohort size effect. Instead, my study will take both processes into account and test if cohort size effect exists in the United Kingdom’s context, even after controlling for individual level predictors.
+-figure 1-
+
+2). Empirical Work on Cohort Size Effect & Happiness
+a. Evidence for Negative Cohort Size Effect on Happiness
+The Easterlin hypothesis has been extensively applied in explaining various economic matters (McMillan & Baesel 1990; Macunovich 1998, 2002; Clark et al. 2008; Macunovich & Easterlin 2010) and has been recently applied in the field of sociology and psychology to explain social outcome and mental wellbeing (Yang 2008; Fukuda 2013; Bardo et al. 2017; Shu 2017). Although this hypothesis applies to wellbeing in general, many happiness studies are based on Easterlin’s relative cohort size framework (Easterlin 2004; Yang 2008; Yiengnrugsawan 2012; Fukuda 2013). Researchers of recent cohort and happiness studies have speculated that the negative cohort effect is partly due to the size of the birth cohorts (Shu 2017; Fukuda 2013; Yang 2008).
+
+Among them, Yang (2008) is the first researcher to tackle the cohort effect on happiness using the multilevel age-period-cohort model. Yang finds that Baby boomers are the unhappiest cohort in the United States in the 20th century, suggesting an influence of formative experiences on cohort disparity (2008). Although Yang did not test cohort size in her models, she speculates that the unique formative experiences (family, school, labor market discourses) due to cohort size have a lasting impact on individuals’ sense of happiness. In 2013, Fukuda revisited the cohort and happiness question and reaffirmed Yang’s cohort effect while testing multiple model specifications (Fukuda 2013). Fukuda points out the benefits of using a multilevel Age-Period-Cohort model over individual-level models in studying social and demographic causes of happiness. Happiness researchers generally focus on individual factors such as age effect, socioeconomic or health indicators; communal effects such as birth cohort and period are often used as variance controls. Fukuda argues that models that do not adjust for cohort and period effect may incorrectly describe the demographic effects on happiness (ibid, p.150). For instance, are people not happy because they are in their middle age? Or due to the fact that they are baby boomers?
+
+b). Confounders of Cohort Effect on Happiness
+Based on prior research, this study will disentangle three sets of confounders of happiness - social economic status, health condition, sociality and demographic characteristics. Social economic status (SES), i.e. income, education, and occupation status, is one of the heaviest components of self-reported happiness (Easterlin 2004). Among the SES variables, the average income is highly and positively associated with self-reported happiness, due to material satisfaction and optimism about future life outcomes (Hagerty & Veenhoven 2003). Cohort size effect is also associated with the subjective evaluation of individual health; members of large birth cohort tend to have a lower perception of general health, regardless of the actual health conditions (Zheng et al. 2011). Extensive studies also suggest sociality, represented by the frequency of socializing with friends and family members, is one of the major determinants of self-reported happiness (Bruni 2010; Delaney & Madigan 2017). The sociality hypothesis does not necessarily contradict the cohort size hypothesis because sociality emphases the frequency and quality of friendship rather than the quantity (Delaney & Madigan 2017). As for demographic characteristics, Yang’s study has also shown that cohort and period effects are different among gender and racial/ethnic groups (2008). She has found that while gender gap in happiness slowly diminishes in the last 30 years in the United States, the racial gap remains substantial (ibid). Therefore, I will also account for key demographic variables to adjust for the racial, gender, and cultural disparities in happiness.
+
+c). Cohort Identification
+Cohort refers to the group of individuals who share the same birth year. However, I cannot simply use birth year in the APC multilevel model because of the identification problem (Yang & Land 2013). The identification problem occurred when there is a perfect linearity among age, period, and cohort: age = period (interview years) – cohort (birth years). Identification problem is unavoidable in any repeated cohort analysis, when age, period, and cohort effects are assumed to be independent of each other (Yang 2008). The conventional way to lessen linearity problem is to divide birth years into a series of five-year intervals – i.e. people who born between 1965 to 1969 are in the same cohort. In addition, the nonlinear transformation of age to an age-squared could be used to solve this problem because age effect is hypothesized to be “U-shaped” (Fienberg and Mason 1985). As part of the sensitivity tests, I will try different specifications for the birth cohort, age, cohort variables to test Age-Period-Cohort effects.
+
+According to Yang, five-year cohorts are common in demography and cohort studies, with the exception of Shu’s study (Yang 2008, p.210; Shu 2017). Birth cohorts based on five-year intervals may neglect the fact that the generations can be very distinct from each other. Cohorts within the same generation share a similar culture and formative experience that is different from other generation (Pew Research Center 2018; Easterlin 1987; Shu 2017). In fact, Easterlin has hypothesized that generation generally has two distinct phases– a leading phase and a trailing phase (Macunovich & Easterlin 2010). Researchers have found that the baby boomers from leading phase (1946-1955) fare much better than those from the trailing edge phase (1956-1964) when all else are equal (Macunovich & Easterlin 2010; Macunovich 2000). Easterlin explains that boomers in the leading period would see increasing competition for younger people, thus they would consider themselves lucky (Macunovich & Easterlin 2010). In Shu’s study, she divides each generation into three periods, and each has historically defined background associated with each cohort.  For instance, she divides the Cultural Revolution generation into the Lost Generation (1957-65), Children of Early Cultural Revolution (1966-71), and Children of Late Cultural Revolution (1972-76). Shu suggests defining birth cohorts into culturally defined cohorts can provide substantively meaningful distinctions based on each cohort’s unique socialization experience in their most susceptible years (Shu 2017, p.15).
+
+3). UK Demographic Trend
+Although no two countries are the same, the cultural and legal origins between the United States and the UK are highly similar compared to other western countries such as France and Germany (Tocqueville 2003). Both countries are dominated by Anglo-Saxon culture and are considered democratic capitalist societies. The two countries also shared similar history in the first half of the 20th century, fighting the First World War and Second World War as allies. However, the economic trend diverges between the two countries, especially after the WWII. Although both the U.S. and the UK survived the war, the Baby boom period is one of the most prosperous time in the U.S. history, whereas the postwar economic boom is less salient in the UK. The United Kingdom’s wealth, prestige, and authority had been severely reduced due to Second World War (Darwin 2011). During the post-war period (1950-75), there was an increasing economic opportunity and a considerable surplus of upward over downward mobility for people born during the interwar period (1936-45) (Halsey & Webb, 2000. p.256; Goldthorpe et. al., 1980). Similar to the United States, the generation (the Silence generation in the U.S. and the Interwar generation in the UK) that came before the Baby Boomers tend to fare much better than the Boomers due to economic expansion.
+
+In order to define generations and cohorts in the UK, I use archival data from the British Broadcasting Corporations as well as definitions from the Office of National Statistics’ annual reports. I define the UK generations and cohorts as the following:
+Generations
+Birth years (15 cohorts)
+Edwardian Era
+1909-1913
+First World War
+1914-1918
+Interwar (3 phases)
+1919-1925, 1926-1932, 1933-1939
+Second World War
+1940-1945
+Baby Boomers (3 phases)
+1946-1951, 1952-1957, 1958-1964
+Generation X (3 phases)
+1965-1971, 1972-1978, 1979-1985
+Millennials (3 phases)
+1986-1990, 1991-1995,1996-2000
+
+HYPOTHESES
+Based on Easterlin’s thesis and recent empirical work on happiness, I hypothesize that 1) self-reported happiness is significantly varied across birth cohorts after adjusting for age and period effects; 2) relative cohort size (average number of live births per cohort) is negatively associated with self-reported happiness even after accounting for other individual-level predictors. In other words, individuals born in a smaller birth cohort are more likely to report higher overall happiness than those born in a larger birth cohort holding all else constant.
+Among all the cohorts, I will pay special attention to Baby boomer generations in the UK, so I can compare the results to those of the U.S. Baby boomers. I also want to test the leading and trailing effects suggested by Easterlin (Macunovich & Easterlin 2010). Therefore, I hypothesize that 3) Baby boomer cohorts in the UK are the unhappiest cohorts compared to older or younger cohorts, adjusting for total population and other confounders. I also hypothesize that 4) the UK boomers in the leading cohort is happier than the UK boomers in the trailing cohort.
+Additionally, I will test the interaction effects suggested by Yang (2008): 5) a larger cohort size has a greater negative impact on the self-reported happiness for the racial/ethnic minority than the non-minority. 6) A larger cohort size has a greater negative impact on self-reported happiness for people with lower socioeconomic status than those with higher socioeconomic status. In my sensitivity analysis, I will test cohort-size effect on other life outcomes such as income, unemployment, and education, and compared them to happiness, as an additional test on Easterlin relative cohort size theory.
+
+DATA
+The individual level United Kingdom data is derived from the European Social Survey (ESS hereafter), a repeated random sampling cross-sectional biennial pan-European social survey which now has 8 waves from 2002-2016. Compared to other Western European countries, the United Kingdom of Great Britain and Northern Ireland resembles many cultural, historical, and social-economic characteristics of the US, and the survey questions in European Social Survey closely resembles the questions asked in General Social Survey. Therefore, the majority of variables in Yang’s study that looks at cohort effect on happiness can be replicated in this study (2008). The full UK sample has 17,639 individuals across 8 waves. The data-set include all key individual measures and controls – overall happiness, age, interview years, household income class, employment status, occupation type, education, gender, minority status, marital status, health status, the frequency of socialization, household size, and religiosity. I am able to identify birth years using age and interview years and construct Age-Period-Cohort (APC) models for multilevel modeling analysis. After adjusting birth years and item nonresponses, the analytic sample has 14,717 cases (17,153 cases with missing data imputation).
+The cohort-level data are derived from the Office of National Statistics (ONS), a non-ministerial department under the UK Parliament, similar to the United States Census (Office of National Statistics, 2017). I am able to derive all the yearly demographics data from the ONS report, such as the number of live births in the United Kingdom from 1900 to 2016. As for cohort classification, I consult archival data from Halsey & Webb (2000), the British Broadcasting Corporation Archive (2018), as well as numerous journal articles in determining generations and cohort’s time periods based on their sociocultural and economic significance.
+
+Sample Missing
+A small set of individuals from prior 1911 and after 2000 are excluded from the analysis due to missing data and extremely small sample size. The cohort prior to 1911 has only 4 cases, spanning from 1885 to 1910, which disrupt the continuous birth year pattern. Additionally, the overall happiness of the 4 individuals is not significantly different from the rest of population (t = 0.53, p = 0.59). 7 people born after 2000 are also not significantly different from the rest of population (t = 1.01, p = 0.31). There are 118 individuals who did not evaluate overall happiness or reported their age thus are excluded in the study. I decided not to impute the missing value for the birth year because missing cases are relatively small (<0.07% of total sample size) and the missing depends on unobserved predictors (no correlations between missing value and other predictors, thus impossible to impute) (Little & Rubin 2002). The year of 1911 and the year of 2000 mark the beginning of World Wars era and the end of 20th century respectively, hence this omission creates a social and culturally meaningful way of dividing cohorts. Therefore, the ESS UK sample population may not be representative of older United Kingdom citizens.
+
+Items Missing
+I also encounter some items nonresponses for individual income class variable (3,162) and marital status variable (3,810). Together, they account for about 20% of entire dataset. The two control variables are probably not missing at random. The reasons for missing is unknown. I assume that very low and very high-income class individuals may be reluctant to share their economic background and separated couples, divorcees and widowers may be less likely to report their marital status due to stigma. Fortunately, I have well documented occupation data (missing<200s), and income class is hypothesized to be highly correlated with occupation. I can use education level (pairwise correlation or ‘pwcorr’ = .342) and employment status (pwcorr = .161) to impute the missing income class cases. Marital status is also highly correlated with age, happiness, household size, and employment status. Therefore, multivariate imputation by chained equation (MICE or chained imputation) is appropriate for this scenario, because I have many highly correlated predictors for the missing value, and MICE method also retains the variability from the missing data (Azur et al. 2011). Using 10 iterations of MICE, I impute of missing cases for income and marriage based on other correlates. I also compared mean squared error with other imputation methods by using test data set. After adjusting birth years, excluding cases with key missing variables, and multiple imputations for key controls, the analytic sample has 14737 cases.
+
+METHOD
+Subjective Wellbeing Measures
+The dependent variable for overall happiness is derived from a question in the ESS survey that asks respondents “how happy are you?” The self-reported happiness variable is a continuous variable that ranges from “extremely unhappy” to “extremely happy”, with numerical responses in between – i.e. extremely unhappy, 1, 2, 3, 4, 5,6, 7, 8, 9, extremely happy. Nevertheless, I will treat this self-reported happiness scale as a continuous variable. Self-perceived happiness is the most important indicator of subjective well-being. In fact, social science research use happiness, life satisfaction, and subjective wellbeing interchangeably (Easterlin 2004; Fukuda 2012; Zimmermann & Easterlin 2006). Nevertheless, I will test both the life satisfaction and happiness variables to have a more comprehensive measure of subjective wellbeing.
+
+However, researchers have argued that the verbal response “very happy” and numerical response may denote a different level of happiness (Kalmijn 2013). Therefore, I will experiment on different happiness scale in my supplemental analysis, such as an ordinal happiness variable similar to Yang (2008) or a binary variable for happiness. For example, I will convert the happiness scale into a binary variable that classifies 8 to 10 into “1: very happy” and the rest to “0: not very happy”. In the ESS data, more than 50% of the UK respondents reported a score of 8 and higher. Some researchers may believe happiness and satisfaction should be analyzed separately (Reichhardt 2006). Happiness is only one of the indicators of subjective well-being. For example, rich and married women reported higher satisfaction than poor and single women, but they weren't happier on a daily basis (Reichhardt 2006, p. 418). As a result, I will also use life-satisfaction scale as the outcome variable for sensitivity analysis.
+
+Group level identifications
+I have two variables at my group level - cohort identification and interview year. The two represent overall cohort effect and overall period effect respectively. In the APC multilevel models, the cohort will be the row identifications and period will be the column identifications. Together, these two identifications will form a matrix of cohort and period, thus allowing cross-cell comparisons. In other word, individual members of any birth cohort can be interviewed in multiple replications of the survey, and individual respondents in any particular wave of the survey can be drawn from multiple birth cohorts (Yang 2008, p.211). For example, I can compare the aggregate happiness for Baby Boomers in 2016 to the aggregate happiness for Millennials at 2002.
+
+Cohort identifications
+Cohort identification denotes a period of continuous birth years. As a result, I will specify cohorts by dividing generations into smaller phases. Therefore, the cohort intervals will not be the same. Some generations will have a longer cohort birth interval than the other. For instance, in most cohort studies, the baby boomer generation in the United States is divided into four cohorts – 46-50, 51-55, 56-60, 61-65 (Yang 2008; Bardo et al. 2017). Pew Research Center defines the Baby Boomer as born from 1946 to 1964, thus researchers using the five-year cohort specification have to force the year 1965 into the Baby Boomer cohorts. I won’t have this type of problem, because I divide cohorts solely based on culturally defined generations. For example, the WWI ends at 1918, so I won’t force 1919 and 1920 into my First World War cohort.
+
+For generations that are 10 or more years, I divide each generation into 3 equal-size cohorts. For example, I will divide Baby Boomer generation (1946-1964) into three cohorts – leading phase, peak phase, and trailing phase. I choose 3 cohorts for larger generations, so I can study how cohort effects changes in the course of leading phase, peak phase, and trailing phase suggested by Shu (2017) and Easterlin (2004). The sample includes individuals born from 1911 to 2000, as a result, I have 7 generations and total of 15 cohorts. UK historians have distinct identifications for generations born before the baby boomer generation, especially for the era between 1910 to 1948 (Annan 1978; Halsey & Webb 2000). I divide the postwar (1948) generations similarly to that of the United States, (ONS 2018; Halsey & Webb 2000; BBC 2004; Pew Research Center 2018).
+
+As a result, the generation/cohorts are specified as follow. Final phase of Edwardian generation (1911-1913), First World War generation (1914-1918), Interwar generation (1919-1939) – first phase (1919-1925), mid phase (1926-1932), final phase (1933-1939), Second World War generation (1940-1945),  Baby Boomer generation (1946-1964) – first phrase (1946-1951), mid phase (1952-1957), final phase (1958-1964), Generation X (1965-1985) – first phase (1965-1971), mid phase (1972-1978), final phase (1979-1985), Millennials (1986-2000) – first phase (1986-1990), mid phase (1991-1995), final phase (1996-2000).
+
+Period identifications
+Period identification denotes the interview years. ESS UK subset currently have 8 waves of interviews, thus I have six periods range from 2002 to 2016. The periods at the group level will adjust for potential significant period-specific effects. The period-specific effects on happiness include effects from aggregated economics conditions such as GDP, unemployment rates, financial crisis and effects from significant cultural events such as the royal weddings and 2012 London Olympics.
+
+Cohort size variable at level 2
+Cohort size or relative cohort size is my main independent variable. According to Wright (1989), relative cohort size is commonly expressed as a ratio of the male population aged 30-64 to the male population aged 15-29 (p. 109). A decrease in this ratio indicated an increase in the number of “younger” people relative to “older” people, which is hypothesized to correspond to a decrease in relative income for the younger people (ibid). However, this estimate ignores female population. Easterlin defines the relative cohort size as the crude birth rate surrounding the cohort’s birth (1987). In my study, I adopt Easterlin’s latest definition - relative cohort size measures the average live births per 1,000 in a population within a cohort period. For instance, the cohort size for the final phase of UK Millennials will be the 980 - average number of live births in thousands from the year 1996 to the year 2000. As for sensitivity analysis, I will test other types of cohort size measures, such as fertility rates, Wright’s relative cohort size, and relative cohort size adjust for total population (number of live births in 1,000 over total population.
+
+Confounding variables
+My cell level (level 1) confounders include age, unemployment, education, marital status, the frequency of socializing with friends and family members, children, health status, household income class. Gender and minority status are used to examine any disparity in happiness between men and women and between majority citizen and ethnic minority citizens. Among them, age is the only variable that I will be controlled across all models, because APC multilevel model requires age effect in order to correctly model the cohort effect and period effect (Yang and Land 2013). The social economic status is measured by three variables: household income class, unemployment, and education level. Household income class is respondents’ subjective evaluation of his/her family income. The household income class variable is categorized into eleven levels, the exact dollar amount each level represent is unknown.  The concept of sociality in ESS is measured by “the frequency of meeting friends”.
+
+Models
+The paper first uses hierarchical age-period-cohort-cross-classified random effects models to test the cohort size effect at both the individual level and the cohort-period level. I follow similar model specification in Yang (2008) and her book on Age-Period-Cohort analysis (Yang & Land 2013).  According to Yang, an APC multilevel model is necessary for cohort size analysis, because respondents in the sample are nested in, and cross-classified by, the two higher-level social contexts defined by birth cohort and interview period (2008). Individual-level predictors such as income vary among individuals, but cohort and period effect is constant for all individuals in the same cohort or period. Therefore, I will overestimate the cohort and period effect if I suppress the group-level effects into the individual level (Yang and Land 2013). “It is possible that sample respondents who were surveyed at the same historic point and who belonged to the same cohort group may have similar responses because they share random error components unique to their period and cohort” (Yang 2008, p.211).
+
+My multi-level models will include (0) a null model that adjusts age fixed effects at cell-level and cohort and period random effect between cells, (1) a model adjusting for socioeconomic status explanatory variables at cell-level, (2) a model adjusting for demographics in additional to model 1, (3) a model adjusting for all cell-level predictors, and 4) a model that estimates the relative cohort size at cohort level. The model 4 will be the full model that disentangle cohort and period-specific effects from the individual level predictors that are influencing happiness. All analytic models are Ordinal Least Squared Age-Period-Cohort Multilevel Cross-Classified models. I choose OLS models because happiness is a continuous variable. In addition, I will conduct cross-level interactions to model 4 to exam the happiness disparity for each income classes, gender, and minority groups across different cohort sizes (model 5). Last but not least, I will add a random effect of cohort-size to see if cohort size effects are the same across cohorts. The reference cell is the final phase of millennials who are interviewed at the year 2016. The reference individuals are people who have a middle-class income, have a high school education, have no children, work in a white-collar occupation, are under 25 years old, married, religious, and healthy, are male and non-minority, and socialized with friend and family at least one time a week.
+
+Cell level full model:
+Prob(IFHAPPYijk=1|πjk) = ϕijk; log[ϕijk/(1 - ϕijk)] = ηijk ηijk = π0jk + π1jk*(HINCOMEijk) + π2jk*(FEMALEijk) + π3jk*(MINORITYijk) + π4jk*(NOTRELIGijk) + π5jk*(UNEMPLOYijk) + π6jk*(AGEijk) + π7jk*(AGE_SQijk) + π8-12jk*(FRIEND1ijk) + π13-15jk*(EDUC1ijk) + π16jk*(EDUC4ijk) + π17-20jk*(MARRIAG3ijk)
+
+Between cell full model:
+π0jk = θ0 + b00j + c00k + (γ01)*BIRTHj     π1jk = θ1 + (γ11)*BIRTHj     π2jk = θ2 + (γ21)*BIRTHj     π3jk = θ3 + (γ31)*BIRTHj     π4-20jk = θ4-20
+Mixed Model:    
+ηijk = θ0 + γ01*BIRTHjk + θ1*HINCOMEijk + γ11*HINCOMEijk*BIRTHjk + θ2*FEMALEijk + γ21*FEMALEijk*BIRTHjk + θ3*MINORITYijk + γ31*MINORITYijk*BIRTHjk + θ4*NOTRELIGijk + θ5*UNEMPLOYijk + θ6*AGEijk + θ7*AGE_SQijk + θ8-12*FRIENDsijk + θ13-16*EDUCijk + θ17-20*MARRIAG3ijk+ b00j + c00k
+
+The equation above is the full model that estimate relative cohort size effect and controlled for socioeconomic status predictors, demographics, health conditions, religiosity, and the frequency of socialization. At level 1, the ηij is the log odds transformation of the probability of being happy ϕijk. “i" denotes individual respondent. “j” denotes cohort group – row identification, and “k” denotes period group – column identification. Θ0-20 are the fixed effects. γ01 denotes the birth cohort effect. γ11-31 denotes the cross-level interaction effects between birth cohort and level one covariates. b00j and c00k denote random effects for cohort and period. The error term is omitted in this analytic model.
+
+[UNDER CONSTRUCTION]
+Results haven’t been updated yet. I will update it over the summer.
+RESULTS
+Descriptive Statistics
+-Table 1 goes here-
+Table 1 illustrates the unweight demographic characteristics of all the United Kingdom respondents in European Social Survey 2002-16, by generation. The overall happiness across all generation is 84.9%. Compared with Baby Boomers, the two older generations, Generation Y and Generation Z all appear happier. However, there is no difference in happiness between Generation X and Boomers. The total population, number of new births, age, and self-reported bad health of the Baby Boomers are all different from other generations as expected. Self-reported household income class also varied significant cross generations, with Generation X reporting highest average household income class. Younger generations tend to have more college graduates and fewer people with less than upper school education. The data seems to oversample female respondents, with 57.3% female in Generation Y and Z. In addition, percent of people in sample who are religious or married are steadily declining, while the unemployment rate and racial/ethnic minority in the population increased over generations.
+
+Cohort Size Effect and Age-Period-Cohort Effect
+-Table 2 goes here-
+Table 2 summarizes findings from the main models. Model 1 is a fully nested logistic regression model, which controls all individual level covariates except for cohort-level variance and suppress cohort level predators into individual level. In other words, it serves as a competing model to test against APC multilevel models. This model suggests cohort-size is negatively corrected to happiness. Model 1 also suggest a positive impact in age squared change effect and a negative impact of age main effect. These two significant terms indicate a“U-Curve”relationship between happiness on age, i.e. a gradual decrease in individual’s happiness up until the middle age and then a gradual increase until old age (Blanchflower Oswald 2017, 2008; Blanchflower 2007). Despite the age-effect is consistent with numerous descriptive and regression studies, Model 1 ignores the hierarchical nature of multiple level of data.
+
+By comparing the Bayesian Information Criterion (BIC) for Model 1 is almost 2.5 times the BIC for Model2, the simplest multi-level model in my study. Therefore, Model 1 not only violates regression assumptions, but also significantly overestimates the cohort-level coefficients and standard errors by ignoring between cohorts and between interviews variations. As the result, a single level APC model is not recommended for measuring cohort, age, and period effects. In addition, by disaggregating cohort group into level one will also cause collinearity issue between age and cohort identification variables. making intercept less useful for interpretation.
+
+Model 2 is an“uncontrolled”multilevel cross-classified Cohort-Period-Only Bernoulli model, which accounted for birth cohort and interview year random effects. Model 2 serves as a “null” multilevel model to test if cohort size at cohort level correlates to individual happiness at cell-level. According to Table 2, cohort size is negatively corrected with individual’s likelihood of being happy. However, the variance component for birth cohort suggests cohort effect are not different across cohorts. The insignificant birth cohort variance component is probably suppressed by age fixed effect, which is later suggested in full HLM model. However, Model 2 does confirm a highly significant period effect, suggesting individual subjective well-being varies across interview years at level 2.
+
+Model 3 accounted for age effects and cell-level predictors and controls. Model 3 is the “predicting model” as it has the lowest BIC scores. The model continues to illustrate a negative effect of cohort-size on subjective well-being. The cohort and period random effects are both significant, indicating at least one cohort-period cluster is different from other. In other words, a baby boomer born in 1952, interviewed in 2002 (age 50) on average has a different likelihood of being happy compared to a Gen X (age 50) interviewed in 2016, despite sharing same age, after controlling for the period effect. The significance in cohort-size effect and cohort random effect also indicate cohort-size does not explain all cohort-level influence on happiness.
+
+Model 4 include interaction terms in addition to Model 3, namely the cross-level interactions between household income class, race, and gender and cohort size. Model 4 parameters are almost unchanged compared to that of Model 3. The magnitude of cohort-size effect (logged odd) is slightly increased from -0.111 to -0.136, probably due to economic inequality which will later be discussed. In addition, both Model 3 and 4 do not support the assumption that age effect on happiness is negative and bounce back after mid-age.
+
+Interaction Effects
+Table 4 report all parameters in full cross-classified multilevel models. This model will have three cross-level interactions with cohort size, namely income class, gender, and minority status. As mention before, the cohort size main effect is inversely correlated with subjective happiness. The interaction effect of income class and cohort size has a positive effect on happiness (p-value = 0.003). When holding all else constant, this interaction suggests that not only individuals from higher income class generally tend to have higher subjective wellbeing, but they also receive additional happiness bonus if they were born into a large birth cohort. This interaction also indicates individuals from higher income class are less affected by the negative effect of large cohort size compared to individuals from lower income class who are in the same cohort, holding all else constant. However, the full model does not show there is cohort size effect disparity between male and female. The cohort size effect also does not vary between majority and minority ethnic groups (both p-value>0.05).
+
+Other Predicting Variables
+	The effects of all level 1 covariates are consistent with findings from previous studies on happiness. Model 4 shows unemployment is associated with less happy (negative logged odds of -0.09). Religiosity, an indicator of social support, is associated with more happiness. Socializing with friends at least once a month seems to improve subjective wellbeing compared to individuals who never socialized with friends. Based on the magnitude of coefficients, sociality seems to have the most drastic impact on happiness than any other covariates (e.g. the log odds of socializing with friends every day is 0.189). Compared to individual who never completed school, any education attainment is associated with increases in happiness. Among these attainment, college degree has the highest improvement, which increase odds of happiness by about 48% compared to individuals who did not finished upper school. Individuals in a marital/residential union are happier than individuals who are not in a marital/residential union - never married, separated, divorced, and widowed. Married individuals who are legally separated from their spouses and widowers are the least happy groups compared to married individuals holding all else constant.
+
+[UNDER CONSTRUCTION]
+DISCUSSION
+
+Cohort Size Effect in the U.K.
+My study is the first empirical attempt to examine the cohort size effect on happiness. Although many studies observe that self-reported happiness does vary across the birth cohort, I have found that cohort size explains some of the cohort variations in self-perceived happiness even after accounting for age, period, material wellbeing, social wellbeing, health conditions, and demographic characteristics. In addition to the cohort effect, my full model provides moderate evidence for a negative cohort size effect (p = 0.048), which suggests that individuals from a smaller birth cohort tend to be happier than individuals from a large birth cohort. The significant negative cohort size effect persists across all model specifications. In other words, individual level predictors cannot fully explain all the time and event specific variations in happiness, and the number of people born in a year influences self-evaluation of happiness. I also have found that the Baby boomers report the lowest level of happiness compared to other cohorts in the British data, holding all else constant. These results are similar to those in Yang (2008) and Fukuda’s (2014) studies. This study provides some evidence that the negative relationship between cohort size and happiness may be not limited to the U.S. experience.
+
+Cohort Identification
+Besides replicating the study using the UK data, I also challenge the conventional cohort specification by proposing a cohort specification that is based on culturally defined generation periods. Researchers who use the conventional cohort identification basically divide the birth years into a series of 5-year periods. I define the cohorts by separating each generation into a leading phase, a peak phase, and a trailing phase. The cohort specification based on generations is theoretically more interesting because this method allows researchers to study the stages of demographic transition in a very long generation (e.g. baby boomer generation) and it will not force birth years from two different generations into one cohort. The generation based cohort identification produced statistically significant results for cohort size effect compared to that of 5-year cohorts. As a result, researchers may consider testing this culturally based cohort specification in their cohort studies.
+
+Links between Cohort Size and Happiness
+There are many potential explanations for cohort size and happiness. The “crowding mechanisms” is the central explanation for cohort size effect in Easterlin’s thesis. Individuals’ subjective well-being is shaped by the “crowding mechanisms” because cohort size constrains the available material, social, and marital resources. Among these resources, Easterlin argues the material would be the main factors (1987). Even Easterlin suggests the relative income on happiness is very limited: “When asked how much more money they would need to be completely happy, people typically name a figure greater than their current income by about 20 percent. Indeed, if happiness and income are compared at any point in time, those with more income are, on average, happier than those with less” (Easterlin 2004, p.31).
+
+In my supplementary analysis, economic outcomes seem to vary by cohorts, but cohort size seems to have no influence on economic outcomes. This finding contrary to Easterlin hypotheses that individuals from large birth cohorts tend to be economically worse off. I regress income class, college attainment, and getting married on the same APC models, and have found that cohort size has no impact on individual income, getting a college degree, nor getting married. Cohort size seems to only affect people’s perception of happiness rather than actual life outcomes. The comparison may show that the negative cohort size impact could be mostly psychological rather than a result of direct competition in the labor, education, and marital market. However, this could be special scenarios in the United Kingdom or the negative cohort size effect is moderated by other omitted variables.
+
+In addition, birth cohort size may have a unique psychological effect on individual well-being regardless of the actual economic conditions and experience. Researchers have discovered that individual objective wellbeing does not automatically lead to subjective well-being (Oswald & Wu 2010). Therefore, the mechanism may be a predominately psychological one. The cohort size may have a direct psychological impact on subjective wellbeing due to “crowdedness mechanisms” (Easterlin 1987). Individuals born in large cohort tend to be less happy because they experience the stress from the crowdedness or from the potential competition regardless of actual social and economic competitions. Stockard and O’Brien suggest that cohort characteristics theoretically linked to social integration and regulation, which have substantively strong and statistically significant impact on age-specific suicide rates in the U.S. (2002). The strong correlation between cohort size and mental health outcome suggests that there are other psychological mechanisms besides relative income effect or crowding mechanism.
+
+Limitations
+Omitted Variable Bias
+This study does not analyze other mechanisms that may explain the cohort-size effect: GDP per capita, unemployment rates, college enrollment, and so on at the critical juncture during the life course of these cohorts, which could be key indicators of market competitiveness and stress. The UK also have relatively small and stable population birth rates, thus the evidence of a significant cohort size effect may not apply to other countries. Last but not least, some of the level 2 data such as the number of new births, total populations, and birth rates are derived from official sources. The official source such as the Office of National Statistics does not have a public data set that includes all the yearly demographics information from 1900 to 2016. For data prior to 1960, I use archival data in published journals and books to fill in the gap. Lastly, the age-cohort-period model in this study may still have collinearity issue - the age and cohort variables are correlated. Even after using a five-year cohort in the analysis, age and cohort groups are still correlated.
+
+Last but not least, I may not be able to apply the cohort effect on happiness to the life satisfaction measure and the subjective wellbeing outcome. Although happiness and satisfaction are used interchangeably in empirical research, it should be examined whether obtained results are the same for satisfaction. For example, Diener (1984) suggested that the difference between these two cannot be due to differences in the cognitive or emotional nature but that the relationship is more complicated. Second, another model for age-period-cohort decomposition in happiness should be developed.
+
+Problems with Easterlin Hypothesis
+The Easterlin hypothesis is fundamentally an economic argument. Evidence for the Easterlin hypothesis does not seem to be very consistent: “Aggregate data support the hypothesis more than individual-level data, period-specific or time-series data support the hypothesis more than Easterlin hypothesis 35 cohort-specific data, experiences from 1945–1980 support the hypothesis more than the years since 1980, and trends in the United States support the hypothesis more than trends in European nations.” (Pampel and Peters, 1995, p. 189). To a large extent, the cohort size hypothesis is based upon Easterlin paradox. "Easterlin paradox” inquiries whether money can buy happiness. His Easterlin’s research shows that at any time point, people with more money are on average, happier than those with less, but material wealth has a diminishing return to happiness when basic necessities are met (Easterlin 2004). The Easterlin hypothesis stresses the importance of relative income, but ignore the influence of absolute material condition on happiness. However, Steven and Wolfers (2008) provide evidence that suggests that an increase in absolute income is still associated with rising subjective well-being in many countries.
+
+Although evaluation of happiness is a cognitive and psychological process, Easterlin seems to stress the tie between economic condition and happiness over another mechanism (Easterlin 1961; 1987; 2001; 2004). The “crowding mechanisms” cannot simply be explained by economic processes. Even Easterlin suggests the relative income on happiness is very limited: “When asked how much more money they would need to be completely happy, people typically name a figure greater than their current income by about 20 percent. Indeed, if happiness and income are compared at any point in time, those with more income are, on average, happier than those with less” (Easterlin 2004, p.31). Therefore, if income aspiration is consistently 20 percent higher than their earning potential across cohorts, the relative cohort size effect approximated by relative income effect may not be an influential mechanism that links cohort size and happiness. The link between cohort size and happiness can be a predominately a social and psychological one. In addition, endogeneity problem may occur when income variable and relative cohort size variable are auto-correlated, since Easterlin treats relative cohort size as an important proxy for relative income. “Most significant among these were the failure to recognize the endogeneity of an income variable when combined with a relative cohort size variable” (Macunovich & Easterlin 2010; p.35).
+
+The competition for social resources argument is often absent in Easterlin thesis – i.e. competition for social status, recognition, political capital, etc. (Macunovich & Easterlin 2010). Although perception of happiness can be directly influenced by group-level economic scarcity, such as labor market competitiveness, employment rates, marital market, and access to education (Slack & Jenson 2008; Oishi et al. 2011; Zhong et al. 2016), large cohort size is also associated with civil unrest and violence, and hostility toward immigrants in labor market (Goldstone 1991; Heinsohn 2005; Semyonov et. al. 2004). An age-period-cohort-characteristic model by Stockard and O’Brien (2002) shows that members of relatively large cohorts are at larger risk for suicide throughout their life course, and the cohort effect on suicide are not explained by economic reasons. In addition, larger cohort size usually indicates individuals have more siblings. Child development studies show that the large family size is associated with fighting and delinquency at home and lower academic performance in school (Macunovich & Easterlin 2010), and these adverse effects are not usually related to economic resources.
+
+CONCLUSION
+In general, the relative cohort size can be an indicator of self-reported happiness and it explains some of the cohort variances in happiness. Holding all individual-level predictors constant, my models suggest that people from a relatively large cohort tend to be less happy than people from a smaller cohort. My study provides some evidence for Easterlin hypothesis (1987) that demographic characteristics, such as cohort size, influence subjective well-being. While I am not able to disentangle the proxy effect from the cohort size effect, I speculate the relative cohort size is associated with the relative income in two ways. A large cohort size may incur higher competition for resources, thus lowering the relative income of those people, holding all else constant. A large cohort size could be a direct result of high fertility rates, and an indirect result of high relative income (graph 1). However, contrary to Yang’s study, I think that a large cohort size does not necessarily increase competition in schools and in the labor market, which is assumed to increase stress (2008). My supplementary analysis on the education, income, and marital outcome does not show that the relative cohort size has any significant impact on these outcomes. Therefore, the cohort size effect on happiness may be mostly a psychological one – a notion of crowdedness or a sense of competitiveness make people more stressful and less happy.
+
+All models support the primary hypothesis that individuals from high birth years are less likely to be happy compared to individuals from low birth years net of individual economic conditions, age-period effect, health condition, and other demographics. As for interaction effects, individuals from a higher income class are less affected by the cohort-size effect compared to individuals from a lower income class within the same birth cohort and interview year. However, cohort size effect does not seem to vary significantly by gender and minority status. Future cohort size study can try to control other birth cohort characteristics to verify the net cohort size effect on happiness. In addition, my study suggests that the cohort size hypothesis should not be constrained to financial mechanism – i.e. the relative income effect. I think that cohort-size study needs to consider on the socio-psychological process rather than simply an economic process (Macunovich & Easterlin 2010). For example, I adjust for frequency of socializing with friends and family members at the individual level – a measure of social process. Future studies may account for neural and psychological factors such as stress and mental illness.REFERENCE
+Blanchflower, David G. and Andrew J. Oswald. 2004. “Wellbeing over Time in Britain and the USA.” Journal of Public Economics. 88(7-8):1359-86.
+Blanchflower, David G. and Andrew J. Oswald. 2008. “Is Wellbeing U-Shaped over the Life Cycle?” Social Science and Medicine. 66(6):1733-49.
+Blanchflower, David G. and Andrew J. Oswald. 2017. “Do Humans Suffer a Psychological Low in Midlife? Two Approaches (with and without controls) in Seven Data Sets.” NBER Working Paper. No. 23724.
+Bruni, L. 2010. The Happiness of Sociality. Economics and Eudaimonia: A necessary encounter. Rationality and Society. 22(4):383-406.
+Clark, Andrew E. 2007. “Born to Be Mild? Cohort Effects Don’t (Fully) Explain Why Well-Being is U-Shaped in Age.” Discussion paper No. 3170. The Institute for the Study of Labor in Bonn.
+Darwin, J. 1988. “Britian and Decolonisation: The Retreat from Empire in the Post-War World (Making of 20th Century).” Palgrave. London, UK.
+Delaney, T. & Madigan T. 2017. Friendship and Happiness: And the Connection Between the Two.
+Duesenberry, J.S. 1949. “Income, Saving, and the Theory of Consumer Behaviour”. Cambridge, MA: Harvard University Press.
+Easterlin (1974). "Does Economic Growth Improve the Human Lot? Some Empirical Evidence" (PDF). In Paul A. David; Melvin W. Reder. Nations and Households in Economic Growth: Essays in Honor of Moses Abramovitz. New York: Academic Press, Inc.
+Easterlin, Richard A. 1975. An Economic Framework for Fertility Analysis. Studies in Family Planning, Vol. 6, No. 3, pp. 54-63
+Easterlin, Richard A. 1978. "The economics and sociology of fertility: A synthesis," in C. Tilly (ed.), Historical Studies of Changing Fertility, pp. 57-133. Princeton: Princeton University Press
+Easterlin, Richard A. 1987. Birth and Fortune: The Impact of Numbers on Personal Welfare. University of Chicago Press.
+Easterlin, R.A., Macdonald, C. and Macunovich, D.J. 1990. How have the American baby boomers fared? Earnings and well-being of young adults 1964–1987. Journal of Population Economics 3, 277–90.
+Easterlin, Richard A. 2001. Income and happiness: Towards a unified theory. The Economic Journal. 111: 465-484.
+Easterlin, R. A. 2003. Explaining happiness. Proceedings of National Academies of Science USA, 100(19), 11176–11183.
+Easterlin, Richard A. 2004. The Economics of Happiness. Daedalus. 133(2): 26-33. University of Chicago Press.
+Macunovich, D. J. & Easterlin, R. A. 2010. “Easterlin Hypothesis.” A chapter from “Economic Grwoth”,  Edited by Durlauf, S. & Blume L. Palgrave Macmillan. UK.
+Economic and Social Research Council (ESRC). 2015. 50 Achievements: The Easterlin Paradox. Economic and Social Research Council. Web. June 9th, 2018. < https://esrc.ukri.org/about-us/50-years-of-esrc/50-achievements/the-easterlin-paradox/ >
+Elder, Glen H., Jr. 1974. Children of the Great Depression: Social Change in Life Experience. University of Chicago Press.
+Elder, Glen H. Jr. 1994. “Time, Human Agency, and Social Change: Perspectives on the Life Course.” Social Psychology Quarterly 57(1): 4-15.
+Elder, Glen H. Jr. 1998. “The Life Course and Human Development.” In R. M. Lerner (Ed.)
+Fienberg, Stephen E. and William M. Mason. 1985. "Specification and Implementation of Age, Period, and Cohort Models." Pp. 45-88 in Cohort Analysis in Social Research, edited by W M. Mason 
+Goldstone, Jack A. 1991. Revolution and Rebellion in the Early Modern World. University of California Press.
+Hagerty, M. R. and Veenhoven, R. (2003). Wealth and happiness revisited - growing national income does go with greater happiness. Social Indicators Research 64: 1-27.
+Heckman, J., & Robb, R. (1985). Using longitudinal data to estimate age, period, and cohort effects in earnings equations. In W. M. Mason & S. E. Fienberg (Eds.), Cohort analysis in social research (pp. 137–150). New York: Springer.
+Heinsohn, Gunnar. 2005. Sons and World Power: Terror in the Rise and Fall of Nations. Lee, James Z. and Wang Feng. 1999. One Quarter of Humanity: Malthusian Mythology and Chinese Realities, 1700-2000. Harvard University Press.
+Lavender, A. (1981). The Annals of the American Academy of Political and Social Science, 458, 215-215. Retrieved from http://www.jstor.org/stable/1044349
+Mason, W. H., and N. H. Wolfinger. 2002. “Cohort Analysis.” Pp. 2189–94 in International Encyclopedia of the Social & Behavioral Sciences. New York: Elsevier.
+Moen, Phyllis and Elaine Wethington. 1999. “Midlife development in a Life Course Context.” Pp. 3-24 in S.L. Willis and J. d. Reid. (eds.) Life in the Middle: Psychological and Social development in Middle Age. San diego, CA: Academic Press.
+Macunovich. D. J.  1998. "Fertility and the Easterlin hypothesis: An assessment of the literature," Journal of Population Economics vol 11, pp.1–59.
+Macunovich, D.J. 2002. Birth Quake: The Baby Boom and Its After Shocks. Chicago: University of Chicago Press.
+Office of Technology Assessment. 1982. World Population and Fertility Planning Technologies: The Next 20 Years. U.S. GPO (Washington, DC).
+Oswald, A. J., & Powdthavee, N. (2008). Does happiness adapt? A longitudinal study of disability with implications for economists and judges. Journal of Public Economics, 92, 1061–1077.
+Oswald, A. J., & Wu, S. 2010. “Objective confirmation of subjective measures of human well-being: Evidence from the U.S.A.”  Science. Vol. 327(5965):576-579.
+Pampel, F. C. & Elizabeth Peters, H. (1995). “The Easterlin Effect”. Annual Review of Sociology. 21:163-194.
+Powdthavee, N. (2005). Unhappiness and crime: Evidence from South Africa. Economica, 72, 531–547.
+Reichhardt, T. 2006. “Well-being research: A measure of happiness.” Nature. 444, 418-419.
+Shek, D.T.L. (1996). “Mid-life Crisis in Chinese Men and Women.” Journal of Psychology. 130:109-119.
+Slack, T. & Jenson, L. (2008). Birth and Fortune Revisited: A Cohort Analysis of Underemployment, 1974-2004 Source: Population Research and Policy Review, Vol. 27, No. 6 (December 2008), pp. 729-749
+Shu, Xiaoling and Margaret Mooney Marini. 2008. “Coming of Age in Changing Times: Occupational Aspirations of American Youth in 1966-80.” Research in Social Stratification and Mobility 26(1):29-55.
+Shu, Xiaoling. 2017. “Cohort Size and Life Chances: The Chinese Baby Boomers and their Wellbeing.” American Sociological Association’s Annual Meeting.
+Stevenson, B. & Wolfers, J. 2008. "Economic Growth and Subjective Well-Being: Reassessing the Easterlin Paradox," Brookings Papers on Economic Activity, Economic Studies Program, The Brookings Institution, vol. 39(1 (Spring), pages 1-102.
+Tang, Wenfang and William L. Parish. 2000. “Chinese Urban Life under Reform: the Changing Social Contract”. Cambridge University Press.
+Tocqueville, A. D. 2003. “Democracy in America and Two Essays on America, 13th Ed.”, edited by Kramnick, I. Penguin Classics. New York, New York, USA.
+Urdal, Henrik. 2006. “A Clash of Generations? Youth Bulge and Political Violence.” International Studies Quarterly 50: 607-29.
+Yang, Yang. 2006. “Bayesian Inference for Hierarchical Age-Period-Cohort Models of Repeated Cross-Section Survey Data.” Sociological Methodology 36:39-74.
+Yang, Yang. 2008. “Social Inequalities in Happiness in the U.S. 1972-2004: An Age-Period-Cohort Analysis.” American Sociological Review 73:204-226.
+Yang, Yang and Kenneth C. Land. 2008. “Age-Period-Cohort Analysis of Repeated Cross-Section Surveys: Fixed or Random Effects?” Sociological Methods and Research 36:297-326.
+Yang, Y., Schulhofer-Wohl, S., Fu, W. J., & Land, K. C. 2008 “The Intrinsic Estimator for Age-Period-Cohort Analysis: What It Is and How to Use It.” American Journal of Sociology. 113(6):1697-1736.
+
+Table 1: Unweight Descriptive Statistics Table for ESS United Kingdom Respondents from 1911 to 2010 (a<0.01)
+
+The Greatest
+1911-1935
+The Silence
+1936-1945
+Baby Boomers*
+1946-1965
+Gen X
+1965-1975
+Gen Y & Z
+76 & beyond
+Total
+Overall Happiness
+87.8%*
+87.6%*
+83.1%
+83.8%
+85.8%*
+84.9%
+
+
+
+
+
+
+
+Population (millions)
+44.9*
+47.4*
+51.1
+55.13*
+56.49*
+51.80
+
+
+
+
+
+
+
+Birth (millions)
+.667*
+.642*
+.767
+.756*
+.64*
+.71
+
+
+
+
+
+
+
+Age
+79*
+68*
+53
+38*
+27*
+50
+
+
+
+
+
+
+
+% Self-report Bad Health
+12.8%*
+11.2%*
+9.1%
+4.6%*
+3.4%*
+7.7%
+
+
+
+
+
+
+
+Household Income Class
+3.21*
+3.72*
+5.20
+5.70*
+4.73*
+4.774
+
+
+
+
+
+
+
+Less than HS
+57%*
+43.3%*
+18.1%
+7.3%*
+8.2%*
+21.69%
+High School
+23.5%*
+29.8%*
+41.2%
+41.6%
+38.1%*
+37.13%
+Some College
+7.7%*
+8.7%*
+11.7%
+15.4%*
+18.2%*
+12.9%
+College
+7.7%*
+11.8%*
+18.6%
+23.5%*
+27.1%*
+19.2%
+Advance
+4.1%*
+6.5%*
+10.4%
+12.2%*
+8.5%*
+9.1%
+
+
+
+
+
+
+
+% Minority
+2.5%*
+3.4%*
+5.8%
+9%*
+11.4%*
+0.069
+
+
+
+
+
+
+
+% Female
+54.3%
+50.9%
+52.1%
+56.3%
+57.3%
+54.1%
+
+
+
+
+
+
+
+% Not Religious
+8.4%*
+11.1%*
+16.3%
+22.6%*
+29%*
+18.6%
+
+
+
+
+
+
+
+Unemployment
+0.1%*
+0.1%*
+4.5%
+5.8%*
+9.3%*
+4.8%
+Sample Size
+1,615
+1,854
+4,980
+2,714
+2,966
+14,129
+Table 2: Model Comparisons If Respondent is Happy
+Fixed Effects
+M1:
+1 Level
+M2:
+HLM
+M3:
+HLM Full
+M4: HLM Interactions
+Cohort-Size (millions)
+-1.26***
+(0.311)
+-0.164***
+(0.040)
+-0.111*
+(0.048)
+-0.136**
+(0.049)
+Age
+-0.017**
+(0.007)
+
+0.007***
+(0.001)
+0.008***
+(0.001)
+Age-Squared
+0.001***
+(<0.001)
+
+<0.001
+(-0.000)
+<0.001
+(<0.001)
+Constant
+
+0.636***
+0.17
+0.851***
+(0.006)
+0.875***
+(0.009)
+0.875***
+(0.009)
+Random Effects - Variance Component
+Birth Cohort (Row)
+
+0.0002
+0.0006***
+0.0006***
+Period Year (Column)
+
+0.00014***
+0.0001**
+0.0001**
+Approx. BIC
+25202.99
+11041.78
+9753.17
+9897.23
+Statistics in fixed effects are reported in logged odds and standard errors in brackets. Statistics in random effects are reported in variance. The table omitted level-1 covariates for M1, M3 and M4 in the interested of space. Age’s reference is 15, the youngest respondent in the analytic sample.
+
+
+
+Table 3: Logistic Regression Models on If Respondent is Happy ESS UK 2002 to 2014
+Logit Models
+L.0
+L.1
+L.2
+L.3
+L.4
+
+New Births (millions)
+0.264***
+(-5.09)
+0.273***
+(-4.20)
+0.302***
+(-3.89)
+0.301***
+(-3.90)
+0.302***
+(-3.89)
+Age
+
+
+0.963***
+(-3.96)
+0.955***
+(-4.76)
+1.011
+(1.00)
+0.972
+(-0.34)
+Age squared
+
+
+1.001*** (5.91)
+1.001*** (6.51)
+1.001*** (6.52)
+1.001***
+(6.51)
+Income class
+
+
+1.136*** (12.44)
+1.169*** (14.35)
+1.169*** (14.35)
+1.169*** (14.35)
+Unemployed
+
+
+0.574***
+(-5.78)
+0.599***
+(-5.30)
+0.599***
+(-5.30)
+0.599***
+(-5.30)
+Bad health
+
+
+0.340***
+(-14.43)
+0.345***
+(-14.18)
+0.345***
+(-14.17)
+0.345***
+(-14.18)
+Social w/ friends
+
+
+
+
+
+
+Once a month
+
+
+2.119*** (7.52)
+2.086*** (7.33)
+2.087*** (7.33)
+2.086***
+(7.33)
+Few times a month
+
+2.521*** (10.02)
+2.493*** (9.86)
+2.494*** (9.86)
+2.494***
+(9.86)
+Once a week
+
+
+2.359*** (10.47)
+2.388*** (10.57)
+2.390*** (10.58)
+2.389*** (10.57)
+Few times a week
+
+3.169*** (14.34)
+3.341*** (14.88)
+3.342*** (14.88)
+3.341*** (14.88)
+Every day
+
+
+3.376*** (12.68)
+3.555*** (13.14)
+3.556*** (13.14)
+3.555*** (13.14)
+Education level
+
+
+
+
+
+
+Upper School
+
+1.156* (2.11)
+1.079
+(1.10)
+1.080
+(1.10)
+1.079
+(1.10)
+Some College
+
+1.257* (2.52)
+1.124 (1.28)
+1.126 (1.29)
+1.125
+(1.28)
+College Degree
+
+1.608*** (5.25)
+1.400*** (3.67)
+1.402*** (3.68)
+1.401***
+(3.67)
+Grad. Degree
+
+1.438** (3.22)
+1.238
+(1.87)
+1.240 (
+1.88)
+1.239
+(1.87)
+Marital Status
+
+
+
+
+
+
+Separated
+
+
+0.460***
+(-5.66)
+0.487***
+(-5.21)
+0.487***
+(-5.22)
+0.487***
+(-5.21)
+Divorced
+
+
+0.580***
+(-7.11)
+0.545***
+(-7.86)
+0.545***
+(-7.86)
+0.545***
+(-7.86)
+Widowed
+
+
+0.428***
+(-8.66)
+0.406***
+(-9.17)
+0.406***
+(-9.18)
+0.406***
+(-9.17)
+Never married
+
+
+0.729***
+(-4.20)
+0.660***
+(-5.46)
+0.659***
+(-5.48)
+0.659***
+(-5.47)
+Minority
+
+
+0.815*
+(-2.17)
+0.792*
+(-2.46)
+0.792*
+(-2.47)
+0.792*
+(-2.46)
+Female
+
+
+0.932
+(-1.36)
+0.935
+(-1.28)
+0.936
+(-1.27)
+0.935
+(-1.28)
+Not religious
+
+
+0.802***
+(-3.53)
+0.758***
+(-4.41)
+0.758***
+(-4.40)
+0.758***
+(-4.41)
+Observations
+14110
+14110
+14110
+14110
+14110
+
+BIC
+11941.3
+10900.2
+10825.1
+10825.3
+10834.6
+
+Exponentiated coefficients or odd ratios; t statistics in parentheses;
+* p<0.05 ** p<0.01 *** p<0.001"
+
+
+
+Table 4: Multilevel Cross-classified Age-Period-Cohort Bernoulli Model of If Respondent is Happy using ESS UK 2002 to 2014 (Full Model)
+Fixed Component
+Coefficient
+Std. Error
+t-ratio
+d.f.
+p-value
+Level 1
+
+
+
+
+
+Income Class
+0.019150
+0.001271
+15.065
+14012
+<0.001
+Female
+-0.008255
+0.006239
+-1.323
+14012
+0.186
+Minority
+-0.026775
+0.012112
+-2.211
+14012
+0.027
+Non-religious
+-0.037687
+0.007911
+-4.764
+14012
+<0.001
+Unemployed
+-0.090402
+0.014642
+-6.174
+14012
+<0.001
+Age
+0.007533
+0.001456
+5.176
+14012
+<0.001
+Age-Squared
+-0.000004
+0.000013
+-0.281
+14012
+0.778
+Social w/ Friends
+< 1 Per Month
+0.132389
+0.013789
+9.601
+14012
+<0.001
+<4 Per Month
+0.149339
+0.012531
+11.917
+14012
+<0.001
+Once a Week
+0.146016
+0.011661
+12.522
+14012
+<0.001
+<7 a Week
+0.184828
+0.011185
+16.525
+14012
+<0.001
+Everyday
+0.189097
+0.012783
+14.793
+14012
+<0.001
+Education Level
+Upper School
+0.013615
+0.008699
+1.565
+14012
+0.118
+Some College
+0.019086
+0.011149
+1.712
+14012
+0.087
+College Degree
+0.038888
+0.010549
+3.686
+14012
+<0.001
+Advanced Degree
+0.026464
+0.012939
+2.045
+14012
+0.041
+Marital Status
+Never Married
+-0.039249
+0.008919
+-4.401
+14012
+<0.001
+Separated
+-0.091892
+0.019456
+-4.723
+14012
+<0.001
+Divorced
+-0.070877
+0.009463
+-7.490
+14012
+<0.001
+Widowed
+-0.095642
+0.011612
+-8.237
+14012
+<0.001
+Level 2
+
+
+
+
+
+Cohort-Size (millions)
+
+
+
+
+
+Intercepts
+-0.136242
+0.048687
+-2.798
+85
+0.006
+X Income Class
+0.036509
+0.012162
+3.002
+14012
+0.003
+X Female
+0.026928
+0.068013
+0.396
+14012
+0.692
+X Minority
+-0.044562
+0.137263
+-0.325
+14012
+0.745
+
+
+
+
+
+
+Constant
+0.875172
+0.009279
+94.314
+14012
+<0.001
+Random Component
+Std. Dev.
+Variance
+
+d.f.
+p-value
+Cohort Group (Row)
+0.0237
+0.00056
+158.140
+85
+<0.001
+Period (Column)
+0.0109
+0.00012
+21.518
+6
+0.002
+Reference cell at level 1 is low income class, employed, uneducated, rarely social, religious married male. The age is centered at 15 years old. Sample size is 14,110.
+
+
+Table 5: Multilevel Cross-classified Bernoulli Models of If Respondent is Happy
+Fixed Component
+Model 0
+Model 1
+Model 2
+Model 3
+Level 2 Cohort-Size (millions)
+Intercepts
+
+
+-0.164***
+(0.040)
+-0.111*
+(0.048)
+-0.136**
+(0.049)
+X Income Class
+
+
+
+
+0.037**
+(0.012)
+X Female
+
+
+
+
+0.027
+(0.068)
+X Minority
+
+
+
+
+-0.045
+(0.137)
+Level 1
+
+
+
+
+
+Age
+
+
+
+0.007***
+(0.001)
+0.008***
+(0.001)
+
+
+<-0.001
+(<0.001)
+
+
+
+Age-Squared
+
+
+
+<-0.001
+(<0.001)
+Income Class
+
+
+
+0.020***
+(0.001)
+0.020***
+(0.001)
+Unemployed
+
+
+
+-0.090***
+(0.015)
+-0.090***
+(0.015)
+Female
+
+
+
+-0.008
+(0.006)
+-0.008
+(0.006)
+-0.027*
+(0.012)
+
+
+-0.038***
+
+
+(0.008)
+
+
+
+Minority
+
+
+
+-0.026*
+(0.012)
+Non-religious
+
+
+
+-0.037***
+(0.008)
+
+Social w/ Friends
+Once Per Month
+
+
+
+0.133***
+(0.014)
+0.132***
+(0.014)
+0.149***
+(0.013)
+
+
+0.146***
+(0.012)
+
+
+0.185***
+(0.011)
+
+
+0.189***
+
+
+(0.012)
+
+
+
+<4 Per Month
+
+
+
+0.151***
+(0.012)
+Once a Week
+
+
+
+0.147***
+(0.012)
+
+<7 a Week
+
+
+
+0.185***
+(0.011)
+
+Everyday
+
+
+
+0.190***
+(0.013)
+Education Level
+Upper School
+
+
+
+0.013
+(0.009)
+0.014
+(0.009)
+0.019
+(0.011)
+0.038***
+(0.011)
+0.026*
+(0.013)
+Some College
+
+
+
+0.019
+(0.011)
+College Degree
+
+
+
+0.038***
+(0.011)
+
+Advanced Degree
+
+
+
+0.026*
+(0.013)
+Marital Status
+Never Married
+
+
+
+-0.041***
+(0.009)
+-0.040***
+(0.009)
+-0.092***
+(0.019)
+-0.071***
+(0.009)
+-0.096***
+(0.012)
+0.875***
+(0.009)
+Separated
+
+
+
+-0.093***
+(0.019)
+Divorced
+
+
+
+-0.072***
+(0.009)
+
+Widowed
+
+
+
+-0.095***
+(0.012)
+Constant
+
+0.852***
+0.006
+0.851***
+(0.006)
+0.875***
+(0.009)
+Random Component
+Cohort Group (Row)
+
+0.0004**
+(0.020)
+0.0002
+(0.015)
+0.0006***
+(0.024)
+0.0006***
+(0.024)
+Period (Column)
+
+0.0002**
+(0.012)
+0.00014***
+(0.012)
+0.0001**
+(0.011)
+0.0001**
+(0.011)
+
+
+Table 1. Cross-classified by Birth Cohort and Survey Year of the European Social Survey (2002-2016) (N=17,153)
+Survey Year (K)
+Birth Cohort (J)
+2002
+2004
+2006
+2008
+2010
+2012
+2014
+2016
+Total
+The Greatest I: 1914-20
+53
+32
+53
+23
+16
+5
+0
+0
+181
+The Greatest II: 1921-27
+156
+98
+124
+93
+78
+65
+32
+19
+665
+The Greatest III: 1928-35
+193
+170
+201
+179
+156
+170
+149
+92
+1310
+Silence I: 1936-39
+104
+125
+121
+102
+127
+117
+91
+81
+868
+Silence II: 1940-43
+129
+114
+142
+129
+132
+130
+129
+79
+984
+Silence III: 1944-48
+168
+131
+212
+178
+199
+195
+212
+170
+1465
+Baby Boomer I: 1949-54
+189
+133
+209
+222
+236
+220
+218
+201
+1628
+Baby Boomer II: 1955-60
+190
+169
+206
+220
+224
+224
+212
+178
+1623
+Baby Boomer III: 1961-67
+289
+276
+314
+309
+300
+254
+274
+237
+2253
+Generation X I: 1968-71
+158
+159
+174
+191
+160
+143
+145
+112
+1242
+Generation X II: 1972-75
+137
+124
+146
+148
+149
+131
+156
+117
+1108
+Generation X III: 1976-79
+87
+106
+124
+148
+137
+118
+145
+124
+989
+Millennials I: 1980-84
+103
+111
+143
+164
+166
+141
+149
+157
+1134
+Millennials II: 1985-89
+53
+103
+134
+113
+140
+126
+137
+127
+933
+Millennials III: 1990-94
+0
+1
+41
+75
+116
+117
+90
+107
+547
+Generation Z: 1995-2000
+0
+0
+0
+0
+15
+45
+68
+95
+223
+Total
+2009
+1852
+2343
+2294
+2351
+2201
+2207
+1896
+17153
+
+
+GRAPHS
+Figure 1.
+Figure 2.
+Sources: Office of National Statistics, https://visual.ons.gov.uk/birthsanddeaths/
+
+Figure 3.
+Sources: Office of National Statistics, https://visual.ons.gov.uk/birthsanddeaths/
