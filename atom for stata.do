@@ -34,3 +34,7 @@
 //LaTex
 
 //https://slackner.com/2018/03/08/animations-in-latex-with-the-animate-package/
+
+//Lyx for Mac
+//Need to install MacTeX first
+//https://www.lyx.org/Download

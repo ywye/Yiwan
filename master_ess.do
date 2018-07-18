@@ -99,7 +99,7 @@ log using masterlog, text
     The data will import manually, because observations are small.
     */
   save "/Users/wanleaf/Documents/Projects/QP/Data/ess_uk_newvars.dta", replace
-
+    use "ess_uk_newvars.dta", clear
   ***cohort id
     /*this is the main cohort id; the time period for generations is dirived from BBC.com
     and ONS annual reports
@@ -193,6 +193,19 @@ log using masterlog, text
     */
     tab cohortsize, m
       tab cohortsize cohortid, m all exact
+
+  ***Relative Cohort Size (average crude birth rates of a cohort)
+    /* comments:
+    Crude birth rate (cdr) definition:
+    According to OECD & United Nations Studies in Methods, Glossary
+     the number of live births occurring among the population of a given geographical area
+      during a given year, per 1,000 mid-year total population of the given geographical
+      area during the same year.
+    In other word, cbr = average cohort size (new births) / avg. mid-year pop. size in 1k.
+    https://stats.oecd.org/glossary/detail.asp?ID=490
+    */
+    
+
 
   gen int cohortsize_5y=.
     replace cohortsize_5y=.847 if cohortid_5y==100
