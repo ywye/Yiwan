@@ -124,20 +124,21 @@ log using masterlog, text
     su yrbrn if yrbrn<7777, d
       di as text "average birth year =" as result round(r(mean),0.1)
 
+  ***cohort id
   recode yrbrn (1909/1913 = 100 "1: Edwardian 09-13") (1914/1918 = 101 "2: WW1 14-18") /*
     */(1919/1925 = 102 "3: Interwar 19-25") (1926/1932 = 103 "4: Interwar 26-32")/*
     Silence, anti communist, children are withdrawn and cautious.
     */(1933/1939 = 104 "5: Interwar 33-39") (1940/1945 = 105 "6: WW2 40-45")/*
-    */(1946/1951 = 106 "7: Boomers 46-51") (1952/1957 = 107 "8: Boomers 52-57")/*
+    */(1946/1952 = 106 "7: Boomers 46-52") (1953/1958 = 107 "8: Boomers 53-58")/*
     late 40s UK continue rationing to rebuild, royal marriage, Olympics.
-    */(1958/1964 = 108 "9: Boomers 58-64") (1965/1971 = 109 "10: Gen X 65-71")/*
+    */(1959/1965 = 108 "9: Boomers 59-65") (1966/1972 = 109 "10: Gen X 66-72")/*
     De-ration, late 50s true consumer Boom. Labour party lost its seat.
     UK deregulated market. 3% Econ growth rate. Wages increases. Taxes on gentry, more equality.
-    */(1972/1978 = 110 "11: Gen X 72-78") (1979/1985 = 111 "12: Gen X 79-85")/*
+    */(1973/1978 = 110 "11: Gen X 73-78") (1979/1985 = 111 "12: Gen X 79-85")/*
     1961 has a small recession.
-    */(1986/1990 = 112 "13: Millennials 86-90") (1991/1995 = 113 "14: Millennials 91-95")/*
+    */(1986/1989 = 112 "13: Millennials 86-89") (1990/1992 = 113 "14: Millennials 90-92")/*
     73 Oil crisis. Moderate recession 73 to 75. Government controlled by Labour
-    */(1996/2001 = 114 "15: Millennials 96-01") if yrbrn<7777 & yrbrn>1908, generate(cohortid) test
+    */(1993/1996 = 114 "15: Millennials 93-96")  (1997/2001 = 115 "16: Gen Z: 97/01") if yrbrn<7777 & yrbrn>1908, generate(cohortid) test
     /*UK switched from manufacture to services economy,
     since 1985 population increase onto until 2010. UK won Falklands War.
       1997 New Labour, regulate interest rate.
@@ -149,7 +150,7 @@ log using masterlog, text
     tab cohortid, m
       label variable cohortid "Birth Periods of United Kingdom Cohorts from 1909 to 2001"
 
-    recode yrbrn (1909/1915 = 100 "1: 11/15") (1916/1920 = 101 "2: 16/20") /*
+  recode yrbrn (1909/1915 = 100 "1: 11/15") (1916/1920 = 101 "2: 16/20") /*
       */(1921/1925 = 102 "3: 21/25") (1926/1930 = 103 "4: 26/30") (1931/1935 = 104 "5: 31/35")/*
       */(1936/1940 = 105 "6: 36/40") (1941/1945 = 106 "7: 41/45") (1946/1950 = 107 "8: 46/50")/*
       */(1951/1955 = 108 "9: 51/55") (1956/1960 = 109 "10: 56/60") (1961/1965 = 110 "11: 61/65")/*
@@ -187,6 +188,7 @@ log using masterlog, text
     replace cohortsize=0.781 if cohortid==113
     replace cohortsize=0.763 if cohortid==114
     replace cohortsize=0.781 if cohortid==115
+    replace cohortsize=0.781 if cohortid==116
     /* comments:
     The cohort sizes are based on data from ONS and Statista.com
     <https://www.statista.com/statistics/281956/live-births-in-the-united-kingdom-uk-1900-1930/>
@@ -194,7 +196,24 @@ log using masterlog, text
     tab cohortsize, m
       tab cohortsize cohortid, m all exact
 
-  ***Relative Cohort Size (average crude birth rates of a cohort)
+  ***relative cohort size (average crude birth rates of a cohort)
+  gen int r_cohortsize=.
+    replace r_cohortsize=2.408 if cohortid==100
+    replace r_cohortsize=2.192 if cohortid==101
+    replace r_cohortsize=2.098 if cohortid==102
+    replace r_cohortsize=1.685 if cohortid==103
+    replace r_cohortsize=1.523 if cohortid==104
+    replace r_cohortsize=1.656 if cohortid==105
+    replace r_cohortsize=1.758 if cohortid==106
+    replace r_cohortsize=1.609 if cohortid==107
+    replace r_cohortsize=1.803 if cohortid==108
+    replace r_cohortsize=1.659 if cohortid==109
+    replace r_cohortsize=1.269 if cohortid==110
+    replace r_cohortsize=1.302 if cohortid==111
+    replace r_cohortsize=1.365 if cohortid==112
+    replace r_cohortsize=1.376 if cohortid==113
+    replace r_cohortsize=1.284 if cohortid==114
+    replace r_cohortsize=1.199 if cohortid==115
     /* comments:
     Crude birth rate (cdr) definition:
     According to OECD & United Nations Studies in Methods, Glossary
@@ -204,8 +223,8 @@ log using masterlog, text
     In other word, cbr = average cohort size (new births) / avg. mid-year pop. size in 1k.
     https://stats.oecd.org/glossary/detail.asp?ID=490
     */
-    
-
+    tab r_cohortsize, m
+      lab var r_cohortsize "Relative Cohort Size: Average Crude Birth Rates per Cohort"
 
   gen int cohortsize_5y=.
     replace cohortsize_5y=.847 if cohortid_5y==100
