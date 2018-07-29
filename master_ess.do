@@ -54,7 +54,7 @@ codebook compact
 cmdlog using master.do
 log using masterlog, text
 
-*Variable exploration
+*Variable exploration & variable transformation
   **dependent variables - subjective wellbeing
   ***happiness
   browse *happy*
@@ -105,6 +105,29 @@ log using masterlog, text
     and ONS annual reports
     Construct cohortid var using age or yrbrn.
     */
+  ***group level info imported
+    /*
+    Alternatively, group level data can be imported from my CONSTRUCTED stata/excle file.
+      file name: ess_uk_grouplvl.dta
+    */
+  save "/Users/wanleaf/Documents/Projects/QP/Data/ess_uk_newvars.dta", replace
+    help merge
+      pwd
+        ls
+        use ess_uk_grouplvl.dta, clear
+        codebook
+        /*
+        extract newborn_k; population_k using yrbrn
+          optional: cohort_cbr; cbr; groupid
+        */
+        use "ess_uk_newvars.dta"
+    merge 1:1
+
+    merge 1:1 _n using "UK_Prelim.dta", keepusing(happy)
+
+      tab _merge, nolab m
+      drop if _merge==2
+
 
   ****age
     br *age*
@@ -226,6 +249,7 @@ log using masterlog, text
     tab r_cohortsize, m
       lab var r_cohortsize "Relative Cohort Size: Average Crude Birth Rates per Cohort"
 
+  ***cohort size every 5 years
   gen int cohortsize_5y=.
     replace cohortsize_5y=.847 if cohortid_5y==100
     replace cohortsize_5y=.753 if cohortid_5y==101
@@ -251,9 +275,22 @@ log using masterlog, text
     tab cohortsize_5y, m
       tab cohortsize_5y cohortid_5y, m all exact
       tab cohortsize_5y cohortsize, m all exact
-  *End
+  **end
 
-  *Bivariate visualization & variable transformation
+  **independent variables (individual level)
+  *** household income
+  br hinctnta hinctnt
+  codebook hinctnta hinctnt
+  ta hinctnta hinctnt, m
+    ta happy, nolabel m
+  hist  if , discrete frequency
+    kdensity if , normal
+  sum if , d
+    di as text "average income class= " as result round(r(mean),0.1)
+    /*comments:
+    */
+
+  *Bivariate visualization
   ** Bivariate visualization
 
   *** Happiness by cohortid_5y
