@@ -1,9 +1,25 @@
-//Using Atom for Stata
+//Quantea Miniworkshop: Atom for Social Scienctist (15 mins)
+
+//Objective:
+#1. what is Atom, why you may need it.
+#2. how to install Atom & set up github on Mac OS.
+#3. how to set up Atom for writing Stata syntax.
+#4. how to do version control, a.k.a. github in atom.
+#5. [Advanced], learn how to edited snippets (hacking).
+
+//Requirements: Mac OS, Stata or R installed
+
 
 //Why use Atom?
-  //Cutting edge text editor of the 21st century (first released in 2015)!
-  //Version control, because Github is included! Keep track of all your changes!
-  //Fully customized syntax and grammers! Atom is hackable. You can change all the rules!
+  //Vs. git: git is stupid, too elementary, not user friendly.
+  //Vs. github: can't do coding simultaneously
+  //Vs. Stata's do-file editor: only works for stata code, no version control, syntax rules are fixed.
+  //Vs. text-wrangler/sublime do have version control (online or local), syntax rules are mostly fixed.
+  //Atom is develped by company that made github.
+
+  //Cutting edge text editor of the 21st century (first released in 2015).
+  //Fully supportive version control, because Github is included! Keep track of all your changes.
+  //Fully customizable syntax and grammers! Atom is hackable. You can change all the rules.
   //Cross language coding (script package) - Python, R-script, do-file, all in one file.
   //Terminal support - no need to run terminal seperately
   //It's free!
