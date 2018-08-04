@@ -47,6 +47,8 @@ codebook compact
   8). Export data for sensitivity analysis (axillary models)
     - analysis done in HLM software
   9). Sensitivity test
+    9.1. Missing data
+    9.2. Bernoulli model
   */
 
   man log
@@ -121,13 +123,15 @@ log using masterlog, text
           optional: cohort_cbr; cbr; groupid
         */
         use "ess_uk_newvars.dta"
-    merge 1:1
 
-    merge 1:1 _n using "UK_Prelim.dta", keepusing(happy)
-
+    merge m:m yrbrn using "ess_uk_grouplvl.dta", keepus(newborn_k population_k) keep(match) nogen
       tab _merge, nolab m
       drop if _merge==2
 
+      rename _merge _merge_grouplvl
+
+    tab1 population_k newborn_k
+    codebook newborn_k population_k, d
 
   ****age
     br *age*
@@ -278,17 +282,62 @@ log using masterlog, text
   **end
 
   **independent variables (individual level)
-  *** household income
+    **social economic status variables
+    /*
+    measurements of social economic status include household income class (proxy for income),
+    occupation type/classification (proxy for occupational prestiage),
+    and education years (prxoy for level of education/education status).
+    */
+  ***household income
   br hinctnta hinctnt
   codebook hinctnta hinctnt
   ta hinctnta hinctnt, m
-    ta happy, nolabel m
-  hist  if , discrete frequency
-    kdensity if , normal
-  sum if , d
-    di as text "average income class= " as result round(r(mean),0.1)
-    /*comments:
+
+  gen income = hinctnta if hinctnta<13
+	  replace income = hinctnt if hinctnt<13
+	lab val income hinctnt
+	tab income, m
+  	ta income, m nolab
+    hist income, discrete frequency
+      kdensity income, normal
+    sum income, d
+      di as text "average income class = " as result round(r(mean),0.1)
+    /*
+    comments:
+    make income based group to zero, and label income with econ classes according to Dennis Gilbert (2002), Beeghly (2004).
     */
+		gen hincome = income-1
+		lab def hincome 0 "0: The Poorest" 1 "1: Very Poor" 2 "2: Poor" 3 "3: Working Poor" /*
+			*/ 4 "4: Working Class" 5 "5: Almost Middle Class" 6 "6: Lower Middle Class" 7 "Middle Class" /*
+			*/ 8 "8: Solid Middle Class" 9 "9: Upper Middle Class" 10 "10: Upper Class" 11 "11: Super-Rich", replace
+		lab val hincome hincome
+		tab hincome, m
+
+  ***occupation/occupation classes
+  /*
+  combine the two variables into one (job); import CONSTRUCTED
+  */
+  labvalcombine iscoco isco08, lblname(job)
+  gen job = iscoco
+    replace job = isco08 if iscoco==.
+  lab val job job
+  tab job, m
+    pwd
+      ls
+      use ess_uk_newjobs.dta, clear
+      codebook, compact
+      /*
+      [CONTINGENCY NOTE]: I constracted job class based on ESS job title/type and Goldthorpe classification.
+      for now we will be using the simple 7 job class I created. The complex will be used for sensitivity analysis.
+      merge job_class variable into ess_uk_newvars (current master data set).
+      */
+
+    use ess_uk_newvars.dta, clear
+
+  merge m:1 idno using "ess_uk_newjobs.dta", keepus(job_class) keep(match) nogen
+    tab _merge, nolab m
+    drop if _merge==2
+
 
   *Bivariate visualization
   ** Bivariate visualization
