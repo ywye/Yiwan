@@ -55,11 +55,11 @@ codebook compact
 cmdlog using master.do
 log using masterlog, text
 
-*Variable exploration & variable transformation
+*1). Variable exploration & variable transformation
   **dependent variables - subjective wellbeing
   ***happiness
   browse *happy*
-  codebook happy
+    codebook happy
   tabulate happy, missing
     ta happy, nolabel m
   histogram happy if happy<77, discrete frequency
@@ -75,10 +75,13 @@ log using masterlog, text
     More on measurement for happiness see:
     <https://worlddatabaseofhappiness.eur.nl/hap_quer/introtext_measures3.pdf>
     */
+  gen happy2 = happy if happy<11
+    lab val happy2 happy
+  tab happy2
 
   ***life satisfaction
   br stflife
-  codebook stflife
+    codebook stflife
   ta stflife, m
     ta stflife, nol m
     hist stflife if stflife<77, dis freq
@@ -92,6 +95,11 @@ log using masterlog, text
     happy & stflife will be modeled seperately;
       together they improve robustness for measuring swb.
     */
+
+  gen satisfaction = stflife if stflife<11
+    lab val satisfaction stflife
+  tab satisfaction
+
   **end
 
   **group level variables (cohort & period) [CONSTRUCTED]
@@ -123,7 +131,7 @@ log using masterlog, text
         */
         use "ess_uk_newvars.dta"
 
-    merge m:m yrbrn using "ess_uk_grouplvl.dta", keepus(newborn_k population_k) keep(match) nogen
+    merge m:m yrbrn using "ess_uk_grouplvl.dta", keepus(newborn_k population_k cbr_per) keep(match) nogen
       tab _merge, nolab m
       drop if _merge==2
 
@@ -361,16 +369,16 @@ log using masterlog, text
     su eduyrs
 
   recode eduyrs /*
-    */(1/10 = 0 "1-10 yrs Less than High School") (11/12 = 1 "11-12 yrs High School")/*
+    */(1/10 = 0 "0: 1-10 yrs Less than High School") (11/12 = 1 "1: 11-12 yrs High School")/*
       UK complusory education is on average 11 years, i.e. 5 yrs old to 16 yrs old.
-    */(13/14 = 2 "13-14 A-Level or Some Colleges")/*
+    */(13/14 = 2 "2: 13-14 A-Level or Some Colleges")/*
       The years to degree for UK's BA/MA/PHD are 3, 1, 3 respectively.
       https://www.internationalstudent.com/study-abroad/guide/uk-usa-education-system/
       For OECD data: go to https://stats.oecd.org/#
       "OECD.Stat Education and Training > Education at a Glance
       > Educational attainment and labor-force status
       > Educational attainment of 25-64 year-olds"
-    */(15/17 = 5 "15-17 College") (18/100=6 "Advance Degree"), gen(edu)
+    */(15/17 = 3 "3: 15-17 College") (18/100=4 "4: Advance Degree"), gen(edu)
   tab1 edu educ
 
   ***employment status
@@ -505,13 +513,13 @@ log using masterlog, text
   ***Auxilairy variables
   ****panel data set - individuals who have been interviewed before
     duplicates report idno
-    duplicates tag idno, gen(idno_flag)
-    tab idno_flag, m
+      duplicates tag idno, gen(flag)
+    tab flag, m
     /*
     There are same individuals being studied for more than one cohort.
     flag duplicate observations: individuals who are in the survey more than one time in a different survey year.
     */
-    recode idno_flag (0 = 0 "0: First Time Respondent") (1/2 = 1 "1: Returning Respondent"), gen(panel)
+      recode flag (0 = 0 "0: First Time Respondent") (1/2 = 1 "1: Returning Respondent"), gen(panel)
     tab panel, m
 
   ****sampling weights
@@ -524,9 +532,9 @@ log using masterlog, text
   su pspwght, d
   su dweight, d
 
-  **REFERENCE GROUP
+  **End
 
-  *Bivariate visualization
+*Bivariate visualization
   ** Bivariate visualization
 
   *** Happiness by cohortid_5y
@@ -536,21 +544,141 @@ log using masterlog, text
     bysort cohortid: egen avg_happy = mean(happy)
       tab avg_happy, m
 
-  log off masterlog.txt
 
-  log on masterlog
 
-log close _all
+*2). Descriptive statistics
 
-*Descriptive statistics
-
-*OLS modeling
+*3). OLS modeling
 reg happy r_cohortsize age_c age_c_sq i.period
 
 reg happy r_cohortsize age_c age_c_sq i.period hincome i.job_class i.educ
 
 reg happy r_cohortsize age_c age_c_sq i.period hincome i.job_class i.educ i.marriage female minority
 
-reg happy r_cohortsize age_c age_c_sq i.period ib7.hincome ib4.job_class ib3.educ i.marriage female minority sociality religion badhealth
+reg happy2 r_cohortsize age_c age_c_sq i.period ib7.hincome ib4.job_class ib3.educ i.marriage female minority sociality religion badhealth
 
-keep gen period cohort_5y birth_c birth_m birth_5y cohort_pop	cohort_size pweight yrbrn essround
+*5). HLM Output
+  ** save a seperate version for HLM readied data set
+  pwd
+  save "/Users/wanleaf/Documents/Projects/QP/Data/ess_uk_hlm.dta", replace
+
+** HLM variable transformation
+  /*
+  1. transform catergorical variables into dummy variables if necessary.
+  */
+  ***dependent variables:
+  ****happiness
+  tab happy2, m nolab
+
+  ****life satisfaction
+  tab satisfaction, m nolab
+  ***ready!
+
+  ***group level independent variables & key predicting variable
+  **** relative cohort sizes [key predicting variable]
+  tab1 r_cohortsize, m nolab
+  su cbr_per, d /*relative cohort size percentage point by year*/
+
+  **** cohort identification
+  tab1 cohortid, m nolab
+
+  ***individual level independent variables
+  ****income
+  tab1 hincome, m nolab
+
+  ****education
+  tab1 edu, m nolab
+    recode edu (0 = 1 "1: Less than High School") (1/4 = 0 "0: More than High School"), gen (lesshs)
+    recode edu (1 = 1 "1: High School Graduates") (0 2/4 = 0 "0: No"), gen (highschool)
+    recode edu (2 = 1 "1: A-Level or Some Colleges") (0/1 3/4 = 0 "0: No"), gen (alevel)
+    recode edu (3 = 1 "1: College Graduates") (0/2 4 = 0 "0: No"), gen (college)
+    recode edu (4 = 1 "1: Advanced Degree") (0/3 = 0 "0: No"), gen (advanced)
+  tab1 lesshs highschool alevel college advanced
+
+  ****occupation
+  tab1 job_class, m nolab
+    tab job_class
+    recode job_class (0 = 1 "1: Unskilled workers") (1/6 = 0 "0: No"), gen (unskilled)
+    recode job_class (1 = 1 "1: Farm workers") (0 2/6 = 0 "0: No"), gen (farm)
+    recode job_class (2 = 1 "1: Skilled workers") (0/1 3/6 = 0 "0: No"), gen (skilled)
+    recode job_class (3 = 1 "1: Pink-collar workers") (0/2 4/6 = 0 "0: No"), gen (pinkcollar)
+    recode job_class (4 = 1 "1: White-collar workers") (0/3 5/6 = 0 "0: No"), gen (whitecollar)
+    recode job_class (5 = 1 "1: Professionals/officials") (0/4 6 = 0 "0: No"), gen (professional)
+    recode job_class (6 = 1 "1: Unspecified workers/Unkown/Refuse/Unemployed") (0/5 = 0 "0: No"), gen (unknownjob)
+  tab1 unskilled farm skilled pinkcollar whitecollar professional unknownjob
+
+  ****employment status
+  tab1 unemploy, m nolab
+    recode unemploy (1 = 1 "1: Actively unemployed") (0 2 = 0 "0: No"), gen (unemploy_active)
+    recode unemploy (2 = 1 "1: Inactively unemployed") (0/1 = 0 "0: No"), gen (unemploy_inact)
+
+  ****marital Status
+  tab1 marriage, m nolab
+    recode marriage (0 = 1 "1: Married") (1/4 = 0 "0: No"), gen (married)
+    recode marriage (1 = 1 "1: Seperated") (0 2/4 = 0 "0: No"), gen (seperated)
+    recode marriage (2 = 1 "1: Divorced") (0/1 3/4 = 0 "0: No"), gen (divorced)
+    recode marriage (3 = 1 "1: Widowed") (0/2 4 = 0 "0: No"), gen (widowed)
+    recode marriage (4 = 1 "1: Single") (0/3 = 0 "0: No"), gen (single)
+  tab1
+
+  ****Sociality
+  tab1 sociality, m nolab
+    /*
+    Not a crucial variable -> collapase the var into 4 catergories to reduce variables
+    */
+    recode sociality (0 = 1 "1: Never") (1/4 = 0 "0: No"), gen (neversocial)
+    recode sociality (1/3 = 1 "1: Sometimes") (0 4/6 = 0 "0: No"), gen (sometimessocial)
+    recode sociality (4/5 = 1 "1: Often") (0/3 6 = 0 "0: No"), gen (oftensocial)
+    recode sociality (6 = 1 "1: Everyday") (0/5 = 0 "0: No"), gen (socialeveryday)
+  tab1 neversocial sometimessocial oftensocial socialeveryday
+  ***ready!
+
+  **Order & Sort & Clean
+  order idno/*
+    */ happy2 satisfaction /*
+    */r_cohortsize cbr_per cohortid cohortid_5y /*
+    */age_c age_c_sq period yrbrn /*
+    */hincome unemploy_active unemploy_inact /*
+    */lesshs highschool alevel college advanced /*
+    */unskilled farm skilled pinkcollar whitecollar professional unknownjob /*
+    */married seperated divorced widowed single /*
+    */female minority /*
+    */neversocial sometimessocial oftensocial socialeveryday /*
+    */notrelig badhealth /*
+    */pweight pspwght panel
+
+  sort cohortid yrbrn
+
+  keep idno/*
+    */ happy2 satisfaction /*
+    */r_cohortsize cbr_per cohortid cohortid_5y /*
+    */age_c age_c_sq period yrbrn /*
+    */hincome unemploy_active unemploy_inact /*
+    */lesshs highschool alevel college advanced /*
+    */unskilled farm skilled pinkcollar whitecollar professional unknownjob /*
+    */married seperated divorced widowed single /*
+    */female minority /*
+    */neversocial sometimessocial oftensocial socialeveryday /*
+    */notrelig badhealth /*
+    */pweight pspwght panel
+
+  export sasxport "/Users/wanleaf/Documents/Projects/QP/Data/ess_uk_hlm.xpt", rename
+
+  **save a different HLM version with no missing values
+  save "/Users/wanleaf/Documents/Projects/QP/Data/ess_uk_hlm_nm.dta"
+
+  foreach v of var * {
+  drop if missing(`v')
+  }
+
+  save "/Users/wanleaf/Documents/Projects/QP/Data/ess_uk_hlm_nm.dta", replace
+
+  export sasxport "/Users/wanleaf/Documents/Projects/QP/Data/ess_uk_hlm_nm.xpt", rename
+  **End HLM ouput
+
+*End code
+  log off masterlog.txt
+
+  log on masterlog
+
+log close _all
