@@ -1,0 +1,34 @@
+todo list for asa roundtable session:
+paper title: Birth Cohort Size and Subjective Well-being: The Case of the United Kingdom
+coauthors: Yiwan Ye, Xiaoling Shu
+
+todo:
+1. Continuous happiness variable
+
+2. OLS HLM Models Testing run
+
+3. Rewrite do-file
+	3.1 master merge
+	3.2 variables (cohorts, period, level 2 data) generation
+	3.3 variable transformation
+	3.4 descriptive analysis: tabulation/pwcorr/ols assumption test
+	3.5 missing imputation
+	3.6 HLM transformation
+
+4. HLM Analysis
+	4.1 Run simple imputed OLS HLM
+	4.2 More complex imputed OLS HLM
+	4.3 Sensitivity models
+	4.4 Learn how to transform HLM data to Stata via SAS
+
+5. Make personal website: CV, Bio, Publication, Contact.
+https://cms.jimdo.com/wizard/purpose/
+
+deadline:
+1. June 3-4th
+
+2. June 4-8th
+
+3. June 6-14th
+
+4.
