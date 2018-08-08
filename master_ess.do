@@ -570,6 +570,92 @@ reg happy2 r_cohortsize age_c age_c_sq i.period ib7.hincome ib4.job_class ib3.ed
   pwd
   save "/Users/wanleaf/Documents/Projects/QP/Data/ess_uk_hlm.dta", replace
 
+** Missing Data & Imputation
+  ***Imputation for hincome!
+  //impute marriage and hincome seperately and exclusively
+  pwcorr hincome happy2 eduyr marriage age minority female unemploy job_class
+    table hincome, con(mean eduyr sd eduyr)
+    table hincome, con(mean age sd age)
+    tab hincome marriage, chi row
+    tab hincome unemploy, chi row
+    tab hincome job_class, chi
+
+  tab hincome, m
+  gen mi_miss_hincome = 1 if hincome==.
+    replace mi_miss_hincome = 0 if hincome!=.
+
+  save "/Users/wanleaf/Documents/Projects/QP/Data/ess_uk_impute.dta"
+  rename mi_miss_hincome _mi_miss
+
+  mi unregister hincome edu* age female unemploy yrbrn ifhappy job_class female marriage
+  mi set wide
+    mi register imputed hincome
+    mi register regular job_class eduyr age unemploy
+    mi impute ologit hincome job_class eduyr age unemploy, add(10) rseed(100) force
+    gen hincome_ip = _1_hincome
+  /*
+  total of 64 interations; complete sets are hincome 55-64.
+  */
+
+  rename _*_hincome hincome_*
+  egen hincome_median = rowmedian(hincome_55-hincome_64)
+    gen hincome_ip = round(hincome_median, 1)
+    lab val hincome_ip hincome
+  tab hincome_ip job_class
+  /*
+  two people who are unskilled assigned to the richest class (hincome=11), which is probably false.
+  reduce them to the hincome class 9
+  */
+
+  list idno if hincome_ip==11 & job_class==0, nocompress linesize(100)
+    replace hincome_ip=9 if _n==10038
+    replace hincome_ip=9 if _n==14924
+    tab hincome_ip job_class, m
+
+  //drop unnecessary imputed vars & and prefer for imputation for marriage
+    drop hincome_1-hincome_54
+    rename _mi_miss mi_miss_hincome
+
+  ***Imputation for marriage!
+  pwcorr marriage hincome happy2 eduyr age minority whitecollar religion sociality female unemploy job_class badhealth
+    table marriage, con(mean age sd age)
+    table marriage, con(mean sociality sd sociality)
+    table marriage, con(mean religion sd religion)
+    tab marriage job_class, chi
+    tab marriage unemploy, chi
+
+  gen mi_miss_marriage = 1 if marriage==.
+    replace mi_miss_marriage = 0 if marriage!=.
+    rename mi_miss_marriage _mi_miss
+    mi unregister hincome marriage edu* age female unemploy yrbrn ifhappy job_class female marriage
+    mi set wide
+      mi register imputed marriage
+      mi register regular age job_class sociality religion unemploy
+      mi impute logit marriage age job_class sociality religion unemploy, add(10) rseed(100) force
+    /*
+    total of 74 interations; complete sets are hincome 65-74.
+    non-intergers (individuals whose marital status are more unpreditable)
+    are round to the next catergories. E.g. separate are less likely
+    to reveal their marital status than married people.
+    */
+
+    rename _*_marriage marriage_*
+    egen marriage_median = rowmedian(marriage_65-marriage_74)
+      gen marriage_ip = round(marriage_median, 1)
+      lab val marriage_ip marriage
+    tab1 marriage if age<18, m
+    tab marriage_ip if age<20 & _mi_miss==1
+    /*
+    4 people under 20 years old are assigned to married or seperated status.
+    These imputation are possible, because the married/seperated people may not like to report their status.
+    */
+    list idno if marriage_ip<4 & age<20 & _mi_miss==1, nocompress linesize(100)
+
+    //drop unnecessary imputed vars & and prefer for imputation for marriage
+      drop marriage_1 - marriage_65
+      rename _mi_miss mi_miss_marriage
+  **End
+
 ** HLM variable transformation
   /*
   1. transform catergorical variables into dummy variables if necessary.
@@ -592,7 +678,7 @@ reg happy2 r_cohortsize age_c age_c_sq i.period ib7.hincome ib4.job_class ib3.ed
 
   ***individual level independent variables
   ****income
-  tab1 hincome, m nolab
+  tab1 hincome_ip, m nolab
 
   ****education
   tab1 edu, m nolab
@@ -625,13 +711,13 @@ reg happy2 r_cohortsize age_c age_c_sq i.period ib7.hincome ib4.job_class ib3.ed
     pwcorr unemploy_active unemploy_inact unskilled farm skilled pinkcollar whitecollar professional unknownjob lesshs highschool alevel college advanced hincome
 
   ****marital Status
-  tab1 marriage, m nolab
-    recode marriage (0 = 1 "1: Married") (1/4 = 0 "0: No"), gen (married)
-    recode marriage (1 = 1 "1: Seperated") (0 2/4 = 0 "0: No"), gen (seperated)
-    recode marriage (2 = 1 "1: Divorced") (0/1 3/4 = 0 "0: No"), gen (divorced)
-    recode marriage (3 = 1 "1: Widowed") (0/2 4 = 0 "0: No"), gen (widowed)
-    recode marriage (4 = 1 "1: Single") (0/3 = 0 "0: No"), gen (single)
-  tab1
+  tab1 marriage_ip, m nolab
+    recode marriage_ip (0 = 1 "1: Married") (1/4 = 0 "0: No"), gen (married)
+    recode marriage_ip (1 = 1 "1: Seperated") (0 2/4 = 0 "0: No"), gen (seperated)
+    recode marriage_ip (2 = 1 "1: Divorced") (0/1 3/4 = 0 "0: No"), gen (divorced)
+    recode marriage_ip (3 = 1 "1: Widowed") (0/2 4 = 0 "0: No"), gen (widowed)
+    recode marriage_ip (4 = 1 "1: Single") (0/3 = 0 "0: No"), gen (single)
+    tab1 married seperated divorced widowed single, m
 
   ****Sociality
   tab1 sociality, m nolab
@@ -650,7 +736,7 @@ reg happy2 r_cohortsize age_c age_c_sq i.period ib7.hincome ib4.job_class ib3.ed
     */veryhappy happy2 satisfaction /*
     */r_cohortsize cbr_per cohortsize cohortid_5y /*
     */age_c age_c_sq yrbrn /*
-    */hincome unemploy_active unemploy_inact /*
+    */hincome_ip unemploy_active unemploy_inact /*
     */lesshs highschool alevel college advanced /*
     */unskilled farm skilled pinkcollar whitecollar professional unknownjob /*
     */married seperated divorced widowed single /*
@@ -661,20 +747,20 @@ reg happy2 r_cohortsize age_c age_c_sq i.period ib7.hincome ib4.job_class ib3.ed
 
   order cohortid period
 
-  sort cohortid period yrbrn
+  sort cohortid period idno
 
   keep cohortid period idno /*
     */veryhappy happy2 satisfaction /*
     */r_cohortsize cbr_per cohortsize cohortid_5y /*
     */age_c age_c_sq yrbrn /*
-    */hincome unemploy_active unemploy_inact /*
+    */hincome_ip unemploy_active unemploy_inact /*
     */lesshs highschool alevel college advanced /*
     */unskilled farm skilled pinkcollar whitecollar professional unknownjob /*
     */married seperated divorced widowed single /*
     */female minority /*
     */neversocial sometimessocial oftensocial socialeveryday /*
     */notrelig badhealth /*
-    */pweight pspwght panel
+    */pweight dweight panel
 
   export sasxport "/Users/wanleaf/Documents/Projects/QP/Data/ess_uk_hlm.xpt", rename
 
