@@ -77,7 +77,11 @@ log using masterlog, text
     */
   gen happy2 = happy if happy<11
     lab val happy2 happy
-  tab happy2
+  tab happy2, nol
+
+  su happy2, d
+  recode happy2 (0/7 = 0 "Not very happy") (8/10 = 1 "Very happy"), gen(veryhappy)
+    tab veryhappy
 
   ***life satisfaction
   br stflife
@@ -99,6 +103,9 @@ log using masterlog, text
   gen satisfaction = stflife if stflife<11
     lab val satisfaction stflife
   tab satisfaction
+
+  tab1 satisfaction, m nolab
+    su satisfaction, d
 
   **end
 
@@ -219,25 +226,26 @@ log using masterlog, text
       label variable cohortid_5y "Birth Periods of United Kingdom Cohorts from 1909 to 2001 (5-year periods)"
 
   ***cohort size
-    /* The raw cohort size or relative cohort size (see Macunovich & Easterlin 2010)
+    /* To see the raw cohort size or relative cohort size (see Macunovich & Easterlin 2010)
     is the average number of new births in that birth cohort*/
   gen int cohortsize=.
-    replace cohortsize=1.043 if cohortid==100
-    replace cohortsize=0.897 if cohortid==101
-    replace cohortsize=0.926 if cohortid==102
-    replace cohortsize=0.771 if cohortid==103
-    replace cohortsize=0.717 if cohortid==104
-    replace cohortsize=0.775 if cohortid==105
-    replace cohortsize=0.892 if cohortid==106
-    replace cohortsize=0.809 if cohortid==107
-    replace cohortsize=0.941 if cohortid==108
-    replace cohortsize=0.944 if cohortid==109
-    replace cohortsize=0.731 if cohortid==110
-    replace cohortsize=0.734 if cohortid==111
-    replace cohortsize=0.781 if cohortid==112
-    replace cohortsize=0.763 if cohortid==113
-    replace cohortsize=0.781 if cohortid==114
-    replace cohortsize=0.781 if cohortid==115
+    replace cohortsize=1042.8 if cohortid==100
+    replace cohortsize=897.4 if cohortid==101
+    replace cohortsize=926.3 if cohortid==102
+    replace cohortsize=770.7 if cohortid==103
+    replace cohortsize=716.7 if cohortid==104
+    replace cohortsize=775 if cohortid==105
+    replace cohortsize=878 if cohortid==106
+    replace cohortsize=822.2 if cohortid==107
+    replace cohortsize=959.6 if cohortid==108
+    replace cohortsize=921.1 if cohortid==109
+    replace cohortsize=713.5 if cohortid==110
+    replace cohortsize=734.4 if cohortid==111
+    replace cohortsize=776.5 if cohortid==112
+    replace cohortsize=790 if cohortid==113
+    replace cohortsize=743.8 if cohortid==114
+    replace cohortsize=703.8 if cohortid==115
+
     /* comments:
     The cohort sizes are based on data from ONS and Statista.com
     <https://www.statista.com/statistics/281956/live-births-in-the-united-kingdom-uk-1900-1930/>
@@ -247,22 +255,22 @@ log using masterlog, text
 
   ***relative cohort size (average crude birth rates of a cohort)
   gen int r_cohortsize=.
-    replace r_cohortsize=2.408 if cohortid==100
-    replace r_cohortsize=2.192 if cohortid==101
-    replace r_cohortsize=2.098 if cohortid==102
-    replace r_cohortsize=1.685 if cohortid==103
-    replace r_cohortsize=1.523 if cohortid==104
-    replace r_cohortsize=1.656 if cohortid==105
-    replace r_cohortsize=1.758 if cohortid==106
-    replace r_cohortsize=1.609 if cohortid==107
-    replace r_cohortsize=1.803 if cohortid==108
-    replace r_cohortsize=1.659 if cohortid==109
-    replace r_cohortsize=1.269 if cohortid==110
-    replace r_cohortsize=1.302 if cohortid==111
-    replace r_cohortsize=1.365 if cohortid==112
-    replace r_cohortsize=1.376 if cohortid==113
-    replace r_cohortsize=1.284 if cohortid==114
-    replace r_cohortsize=1.199 if cohortid==115
+    replace r_cohortsize=24.08 if cohortid==100
+    replace r_cohortsize=21.92 if cohortid==101
+    replace r_cohortsize=20.98 if cohortid==102
+    replace r_cohortsize=16.85 if cohortid==103
+    replace r_cohortsize=15.23 if cohortid==104
+    replace r_cohortsize=16.56 if cohortid==105
+    replace r_cohortsize=17.58 if cohortid==106
+    replace r_cohortsize=16.09 if cohortid==107
+    replace r_cohortsize=18.03 if cohortid==108
+    replace r_cohortsize=16.59 if cohortid==109
+    replace r_cohortsize=12.69 if cohortid==110
+    replace r_cohortsize=13.02 if cohortid==111
+    replace r_cohortsize=13.65 if cohortid==112
+    replace r_cohortsize=13.76 if cohortid==113
+    replace r_cohortsize=12.84 if cohortid==114
+    replace r_cohortsize=11.99 if cohortid==115
     /* comments:
     Crude birth rate (cdr) definition:
     According to OECD & United Nations Studies in Methods, Glossary
@@ -594,6 +602,7 @@ reg happy2 r_cohortsize age_c age_c_sq i.period ib7.hincome ib4.job_class ib3.ed
     recode edu (3 = 1 "1: College Graduates") (0/2 4 = 0 "0: No"), gen (college)
     recode edu (4 = 1 "1: Advanced Degree") (0/3 = 0 "0: No"), gen (advanced)
   tab1 lesshs highschool alevel college advanced
+    pwcorr lesshs highschool alevel college advanced
 
   ****occupation
   tab1 job_class, m nolab
@@ -606,11 +615,14 @@ reg happy2 r_cohortsize age_c age_c_sq i.period ib7.hincome ib4.job_class ib3.ed
     recode job_class (5 = 1 "1: Professionals/officials") (0/4 6 = 0 "0: No"), gen (professional)
     recode job_class (6 = 1 "1: Unspecified workers/Unkown/Refuse/Unemployed") (0/5 = 0 "0: No"), gen (unknownjob)
   tab1 unskilled farm skilled pinkcollar whitecollar professional unknownjob
+    pwcorr unskilled farm skilled pinkcollar whitecollar professional unknownjob
+      tab whitecollar unskilled
 
   ****employment status
   tab1 unemploy, m nolab
     recode unemploy (1 = 1 "1: Actively unemployed") (0 2 = 0 "0: No"), gen (unemploy_active)
     recode unemploy (2 = 1 "1: Inactively unemployed") (0/1 = 0 "0: No"), gen (unemploy_inact)
+    pwcorr unemploy_active unemploy_inact unskilled farm skilled pinkcollar whitecollar professional unknownjob lesshs highschool alevel college advanced hincome
 
   ****marital Status
   tab1 marriage, m nolab
@@ -634,10 +646,10 @@ reg happy2 r_cohortsize age_c age_c_sq i.period ib7.hincome ib4.job_class ib3.ed
   ***ready!
 
   **Order & Sort & Clean
-  order idno/*
-    */ happy2 satisfaction /*
-    */r_cohortsize cbr_per cohortid cohortid_5y /*
-    */age_c age_c_sq period yrbrn /*
+  order cohortid period idno /*
+    */veryhappy happy2 satisfaction /*
+    */r_cohortsize cbr_per cohortsize cohortid_5y /*
+    */age_c age_c_sq yrbrn /*
     */hincome unemploy_active unemploy_inact /*
     */lesshs highschool alevel college advanced /*
     */unskilled farm skilled pinkcollar whitecollar professional unknownjob /*
@@ -647,12 +659,14 @@ reg happy2 r_cohortsize age_c age_c_sq i.period ib7.hincome ib4.job_class ib3.ed
     */notrelig badhealth /*
     */pweight pspwght panel
 
-  sort cohortid yrbrn
+  order cohortid period
 
-  keep idno/*
-    */ happy2 satisfaction /*
-    */r_cohortsize cbr_per cohortid cohortid_5y /*
-    */age_c age_c_sq period yrbrn /*
+  sort cohortid period yrbrn
+
+  keep cohortid period idno /*
+    */veryhappy happy2 satisfaction /*
+    */r_cohortsize cbr_per cohortsize cohortid_5y /*
+    */age_c age_c_sq yrbrn /*
     */hincome unemploy_active unemploy_inact /*
     */lesshs highschool alevel college advanced /*
     */unskilled farm skilled pinkcollar whitecollar professional unknownjob /*
