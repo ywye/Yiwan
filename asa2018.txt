@@ -24,6 +24,9 @@ todo:
 5. Make personal website: CV, Bio, Publication, Contact.
 https://cms.jimdo.com/wizard/purpose/
 
+6. Proofread QP/ASA conference paper
+using: https://www.nature.com/scitable/topicpage/effective-writing-13815989
+
 deadline:
 1. June 3-4th
 
