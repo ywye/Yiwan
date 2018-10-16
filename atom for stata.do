@@ -9,9 +9,8 @@
 
 //Requirements: Mac OS, Stata or R installed
 
-
 //Why use Atom?
-  //Vs. git: git is stupid, too elementary, not user friendly.
+  //Vs. git: git is too basic, not user friendly.
   //Vs. github: can't do coding simultaneously
   //Vs. Stata's do-file editor: only works for stata code, no version control, syntax rules are fixed.
   //Vs. text-wrangler/sublime do have version control (online or local), syntax rules are mostly fixed.
@@ -24,11 +23,14 @@
   //Terminal support - no need to run terminal seperately
   //It's free!
 
+
+
 //Courtesy to Dr. STEPHANIE LACKNER
 //https://slackner.com/2018/03/02/stata-in-atom/
 
 //In Terminal:
-//apm install stata-exec
+//apm install stata-exec, or in atom settt
+
 //amp install language-stata
 
 //cmd + shift + p, search "stata exec"
@@ -47,8 +49,10 @@
 
 //As it turns out, you can actually run unix shell code in Stata.
 
-//LaTex
 
+
+
+//LaTex
 //https://slackner.com/2018/03/08/animations-in-latex-with-the-animate-package/
 
 //Lyx for Mac
